@@ -8,7 +8,6 @@ gem 'rails', '3.2.3'
 gem 'sqlite3'
 gem 'haml-rails'
 
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -19,6 +18,7 @@ group :assets do
   gem 'therubyracer', :platform => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+  gem 'bootstrap-sass'
 end
 
 group :development, :test do
