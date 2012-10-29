@@ -3,7 +3,7 @@ class CreateStocklists < ActiveRecord::Migration
     create_table :stocklists do |t|
       t.string :symbol
       t.string :name
-      t.number :marketcap
+      t.integer :marketcap
       t.date :ipoyear
       t.string :sector
       t.string :industry
