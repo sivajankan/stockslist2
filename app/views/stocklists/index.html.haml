@@ -1,0 +1,29 @@
+%h1 Listing stocklists
+
+%table
+  %tr
+    %th Symbol
+    %th Name
+    %th Marketcap
+    %th Ipoyear
+    %th Sector
+    %th Industry
+    %th
+    %th
+    %th
+
+  - @stocklists.each do |stocklist|
+    %tr
+      %td= stocklist.symbol
+      %td= stocklist.name
+      %td= stocklist.marketcap
+      %td= stocklist.ipoyear
+      %td= stocklist.sector
+      %td= stocklist.industry
+      %td= link_to 'Show', stocklist
+      %td= link_to 'Edit', edit_stocklist_path(stocklist)
+      %td= link_to 'Destroy', stocklist, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Stocklist', new_stocklist_path

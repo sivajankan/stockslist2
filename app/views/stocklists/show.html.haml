@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Symbol:
+  = @stocklist.symbol
+%p
+  %b Name:
+  = @stocklist.name
+%p
+  %b Marketcap:
+  = @stocklist.marketcap
+%p
+  %b Ipoyear:
+  = @stocklist.ipoyear
+%p
+  %b Sector:
+  = @stocklist.sector
+%p
+  %b Industry:
+  = @stocklist.industry
+
+= link_to 'Edit', edit_stocklist_path(@stocklist)
+\|
+= link_to 'Back', stocklists_path
