@@ -6,21 +6,21 @@ describe "stocklists/index" do
       stub_model(Stocklist,
         :symbol => "Symbol",
         :name => "Name",
-        :marketcap => "",
+        :marketcap => "100",
         :sector => "Sector",
         :industry => "Industry"
       ),
       stub_model(Stocklist,
         :symbol => "Symbol",
         :name => "Name",
-        :marketcap => "",
+        :marketcap => "100",
         :sector => "Sector",
         :industry => "Industry"
       )
     ])
   end
 
-  it "renders a list of stocklists" do
+  it "renders a list of stocklists", :selenium => true do
     render
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     assert_select "tr>td", :text => "Symbol".to_s, :count => 2

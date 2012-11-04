@@ -28,6 +28,8 @@ group :development, :test do
   gem 'database_cleaner'
   
   gem "capybara"
+  gem 'selenium-webdriver'
+  gem 'launchy'
 end
 
 group :test do
