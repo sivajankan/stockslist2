@@ -1,4 +1,4 @@
-@selenium
+#@selenium
 Feature: User can see home page
 
 Scenario: As user I can see home page
