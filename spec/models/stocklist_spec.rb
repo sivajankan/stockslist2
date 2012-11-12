@@ -10,5 +10,20 @@ describe Stocklist do
       :sector => 'Technology',
       :industry => 'Computer Hardware'
     }
-  end  
+  end
+  
+  it 'should create new stock entry' do
+    Stocklist.create!(@attr)
+  end
+  
+  it 'should keep stock symbol unique' do
+    Stocklist.create(@attr)
+    duplicate = Stocklist.new(@attr)
+    duplicate.should_not be_valid  
+  end
+  
+  it 'should not accept empty symbol value' do
+    empty = Stocklist.new(@attr.merge(:symbol => ""))
+    empty.should_not be_valid
+  end
 end

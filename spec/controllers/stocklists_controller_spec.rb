@@ -24,7 +24,14 @@ describe StocklistsController do
   # Stocklist. As you add validations to Stocklist, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    {}
+    {
+      :symbol => 'AAPL',
+      :name => 'Apple Inc', 
+      :ipoyear => '1981',
+      :marketcap => '514.86B', 
+      :sector => 'Technology',
+      :industry => 'Computer Hardware'
+    }
   end
 
   # This should return the minimal set of values that should be in the session
