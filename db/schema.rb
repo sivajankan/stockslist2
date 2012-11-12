@@ -11,17 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121029110711) do
+ActiveRecord::Schema.define(:version => 20121112023708) do
 
   create_table "stocklists", :force => true do |t|
     t.string   "symbol"
     t.string   "name"
-    t.integer  "marketcap"
     t.date     "ipoyear"
     t.string   "sector"
     t.string   "industry"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "marketcap"
   end
+
+  add_index "stocklists", ["symbol"], :name => "index_stocklists_on_symbol", :unique => true
 
 end

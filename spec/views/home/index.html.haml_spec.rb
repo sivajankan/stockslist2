@@ -1,5 +1,8 @@
 require 'spec_helper'
 
 describe "home/index.html.haml" do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'should have home welcome page' do
+    render
+    rendered.should match(/Welcome!/)
+  end
 end
