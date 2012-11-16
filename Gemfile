@@ -27,7 +27,7 @@ group :development, :test do
   gem 'cucumber-rails'
   gem 'database_cleaner'
   
-  gem "capybara"
+  gem "capybara", '2.0.0'
   gem 'selenium-webdriver'
   gem 'launchy'
 end
