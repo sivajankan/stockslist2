@@ -1,5 +1,3 @@
-@pause
-@selenium
 Feature: As a regular user 
 	I can create, read, update and delete a stocklist entry
 	
@@ -23,3 +21,24 @@ Scenario: I can create new stock entry and see it in index page
 	#And I should see "2001"
 	And I should see "Technology"
 	And I should see "Keyboard"
+	
+Scenario: I can update the stock entry
+	Given there is a stock entry
+	And I am on the stocklist page
+	When I click on "Edit" link in the first stock
+	Then I should see "Editing stocklist"
+	And I have entered "Tech" into the "Sector" field
+	When I click the "Save" button
+	Then I should see "Stocklist was successfully updated."
+	And I should see "A1"
+	And I should see "A1 Inc"
+	And I should see "Tech"
+	
+@selenium
+Scenario: I can delete unwanted stock entry
+	Given there is a stock entry
+	And I am on the stocklist page
+	When I click on "Destroy" link in the first stock 
+    And I confirm the dialog
+    Then I should see no stock entry listed
+    

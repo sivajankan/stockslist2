@@ -30,6 +30,7 @@ group :development, :test do
   gem "capybara", '2.0.0'
   gem 'selenium-webdriver'
   gem 'launchy'
+  gem 'fabrication'
 end
 
 group :test do

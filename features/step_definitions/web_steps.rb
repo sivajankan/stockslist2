@@ -17,3 +17,15 @@ end
 Then /^I have selected "(.*?)" from "(.*?)" dropdown list$/ do |option, field|
   select(option, :from => field)
 end
+
+When /^I click on "(.*?)" link in the first stock$/ do |link|
+  click_link(link)
+end
+
+When /^I confirm the dialog$/ do
+  page.driver.browser.switch_to.alert.accept
+end
+
+When /^I dismissed the dialog$/ do
+  page.driver.browser.switch_to.alert.dismiss
+end
