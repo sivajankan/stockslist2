@@ -1,29 +1,21 @@
-%h1 Listing stocklists
-
-%table
-  %tr
-    %th Symbol
-    %th Name
-    %th Marketcap
-    %th Ipoyear
-    %th Sector
-    %th Industry
-    %th
-    %th
-    %th
-
-  - @stocklists.each do |stocklist|
+%h1 Stocklists
+%table{:class => "table table-striped"}
+  %thead
     %tr
-      %td= stocklist.symbol
-      %td= stocklist.name
-      %td= stocklist.marketcap
-      %td= stocklist.ipoyear
-      %td= stocklist.sector
-      %td= stocklist.industry
-      %td= link_to 'Show', stocklist
-      %td= link_to 'Edit', edit_stocklist_path(stocklist)
-      %td= link_to 'Destroy', stocklist, method: :delete, data: { confirm: 'Are you sure?' }
+      %th ID
+      %th
+        = t("activerecord.attributes.stocklist.symbol", :default => t("activerecord.labels.symbol", :default => "Symbol"))
+      %th Created at
+      %th Actions
+  %tbody
+    - @stocklists.each do |stocklist|
+      %tr
+        %td= stocklist.id
+        %td= link_to stocklist.symbol, stocklist_path(stocklist)
+        %td= stocklist.created_at
+        %td
+          = link_to "Show", stocklist_path(stocklist)
+          = link_to "Edit", edit_stocklist_path(stocklist)
+          = link_to "Destroy", stocklist_path(stocklist), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}"
 
-%br
-
-= link_to 'New Stocklist', new_stocklist_path
+= link_to "New", new_stocklist_path, :class => 'btn btn-primary'

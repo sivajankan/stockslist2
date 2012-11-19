@@ -1,7 +1,3 @@
-%h1 Editing stocklist
-
-= render 'form'
-
-= link_to 'Show', @stocklist
-\|
-= link_to 'Back', stocklists_path
+= form_for @stocklist, :url => stocklist_path(@stocklist), :html => { :class => "edit_stocklist", :id => "edit_stocklist" } do |f|
+  %input{:name => "_method", :type => "hidden", :value =>"put"}
+  = render :partial => "form", :locals => {:f => f}

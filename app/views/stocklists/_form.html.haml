@@ -1,28 +1,29 @@
-= form_for @stocklist do |f|
-  - if @stocklist.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@stocklist.errors.count, "error")} prohibited this stocklist from being saved:"
-      %ul
-        - @stocklist.errors.full_messages.each do |msg|
-          %li= msg
+.clearfix
+  = f.label :symbol, t("activerecord.attributes.stocklist.symbol", :default => "Symbol"), :class => :label
+  .input
+    = f.text_field :symbol, :class => 'text_field'
+.clearfix
+  = f.label :name, t("activerecord.attributes.stocklist.name", :default => "Name"), :class => :label
+  .input
+    = f.text_field :name, :class => 'text_field'
+.clearfix
+  = f.label :ipoyear, t("activerecord.attributes.stocklist.ipoyear", :default => "Ipoyear"), :class => :label
+  .input
+    = f.date_select :ipoyear, :class => 'date_select'
+.clearfix
+  = f.label :sector, t("activerecord.attributes.stocklist.sector", :default => "Sector"), :class => :label
+  .input
+    = f.text_field :sector, :class => 'text_field'
+.clearfix
+  = f.label :industry, t("activerecord.attributes.stocklist.industry", :default => "Industry"), :class => :label
+  .input
+    = f.text_field :industry, :class => 'text_field'
+.clearfix
+  = f.label :marketcap, t("activerecord.attributes.stocklist.marketcap", :default => "Marketcap"), :class => :label
+  .input
+    = f.text_field :marketcap, :class => 'text_field'
 
-  .field
-    = f.label :symbol
-    = f.text_field :symbol
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :marketcap
-    = f.text_field :marketcap
-  .field
-    = f.label :ipoyear
-    = f.date_select :ipoyear
-  .field
-    = f.label :sector
-    = f.text_field :sector
-  .field
-    = f.label :industry
-    = f.text_field :industry
-  .actions
-    = f.submit 'Save'
+.form-actions
+  %button{:class => "btn primary", :type => "submit"} Save
+  or
+  = link_to "Cancel", stocklists_path

@@ -1,24 +1,17 @@
-%p#notice= notice
+%label{:class => "label"}= t("activerecord.attributes.stocklist.symbol", :default => t("activerecord.labels.symbol", :default => "Symbol")) + ":"
+%p= @stocklist.symbol
+%label{:class => "label"}= t("activerecord.attributes.stocklist.name", :default => t("activerecord.labels.name", :default => "Name")) + ":"
+%p= @stocklist.name
+%label{:class => "label"}= t("activerecord.attributes.stocklist.ipoyear", :default => t("activerecord.labels.ipoyear", :default => "Ipoyear")) + ":"
+%p= @stocklist.ipoyear
+%label{:class => "label"}= t("activerecord.attributes.stocklist.sector", :default => t("activerecord.labels.sector", :default => "Sector")) + ":"
+%p= @stocklist.sector
+%label{:class => "label"}= t("activerecord.attributes.stocklist.industry", :default => t("activerecord.labels.industry", :default => "Industry")) + ":"
+%p= @stocklist.industry
+%label{:class => "label"}= t("activerecord.attributes.stocklist.marketcap", :default => t("activerecord.labels.marketcap", :default => "Marketcap")) + ":"
+%p= @stocklist.marketcap
 
-%p
-  %b Symbol:
-  = @stocklist.symbol
-%p
-  %b Name:
-  = @stocklist.name
-%p
-  %b Marketcap:
-  = @stocklist.marketcap
-%p
-  %b Ipoyear:
-  = @stocklist.ipoyear
-%p
-  %b Sector:
-  = @stocklist.sector
-%p
-  %b Industry:
-  = @stocklist.industry
-
-= link_to 'Edit', edit_stocklist_path(@stocklist)
-\|
-= link_to 'Back', stocklists_path
+.form-actions
+  = link_to "Back", stocklists_path, :class => 'btn'
+  = link_to "Edit", edit_stocklist_path(@stocklist), :class => 'btn'
+  = link_to "Delete", stocklist_path(@stocklist), :method => "delete", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}", :class => 'btn'

@@ -19,7 +19,8 @@ group :assets do
   gem 'therubyracer', :platform => :ruby
 
   gem 'uglifier', '>= 1.0.3'
-  gem 'bootstrap-sass'
+  gem 'bootstrap-sass', '2.1.1.0'
+  gem 'twitter-bootstrap-rails', '2.0.2'
 end
 
 group :development, :test do

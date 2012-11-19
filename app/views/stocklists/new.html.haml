@@ -1,5 +1,2 @@
-%h1 New stocklist
-
-= render 'form'
-
-= link_to 'Back', stocklists_path
+= form_for @stocklist, :url => stocklists_path, :html => { :class => :form } do |f|
+  = render :partial => "form", :locals => {:f => f}
