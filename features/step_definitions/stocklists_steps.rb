@@ -7,5 +7,5 @@ When /^I am on the stocklist page$/ do
 end
 
 Then /^I should see no stock entry listed$/ do
-  all("table tr").count.should == 0
+  all("table tr").count.should == 1
 end
