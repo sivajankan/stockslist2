@@ -1,10 +1,11 @@
+@selenium
 Feature: As a regular user 
 	I can create, read, update and delete a stocklist entry
 	
 Scenario: I can create new stock entry and see it in index page
 	Given I am on the home page
 	And I follow the "Stocklists" link
-	Then I follow the "New Stocklist" link
+	Then I follow the "New" link
 	Then I have entered "QWER" into the "Symbol" field
 	And I have entered "Qwerty Inc" into the "Name" field
 	And I have entered "100B" into the "Marketcap" field 
