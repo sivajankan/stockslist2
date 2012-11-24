@@ -1,4 +1,3 @@
-@selenium
 Feature: As a regular user 
 	I can create, read, update and delete a stocklist entry
 	
