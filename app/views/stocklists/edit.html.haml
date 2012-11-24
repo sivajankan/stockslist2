@@ -1,3 +1,4 @@
+%h1 Editing stocklist
 = form_for @stocklist, :url => stocklist_path(@stocklist), :html => { :class => "edit_stocklist", :id => "edit_stocklist" } do |f|
   %input{:name => "_method", :type => "hidden", :value =>"put"}
   = render :partial => "form", :locals => {:f => f}
