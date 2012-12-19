@@ -1,4 +1,5 @@
 class StocklistsController < ApplicationController
+  layout "home"
   # GET /stocklists
   # GET /stocklists.json
   def index
@@ -41,6 +42,7 @@ class StocklistsController < ApplicationController
   # POST /stocklists.json
   def create
     @stocklist = Stocklist.new(params[:stocklist])
+    @stocklist[:ipoyear] = "#{params[:stocklist][:ipoyear]}-01-01"
 
     respond_to do |format|
       if @stocklist.save
@@ -57,6 +59,8 @@ class StocklistsController < ApplicationController
   # PUT /stocklists/1.json
   def update
     @stocklist = Stocklist.find(params[:id])
+    #debugger
+    params[:stocklist][:ipoyear] += "-01-01" unless params[:stocklist][:ipoyear].nil?
 
     respond_to do |format|
       if @stocklist.update_attributes(params[:stocklist])

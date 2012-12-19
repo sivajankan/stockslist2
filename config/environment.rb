@@ -3,3 +3,14 @@ require File.expand_path('../application', __FILE__)
 
 # Initialize the rails application
 Stockslist2::Application.initialize!
+
+# Rails::Initializer.run do |config|
+  # config.active_record.colorize_logging = true
+  # config.log_level = :debug #debug, info, warning, error, fatal
+# end
+
+# class Logger
+  # def format_message(level, time, progname, msg)
+    # "#{time.to_s(:db)} #{level} -- #{msg}"
+  # end
+# end

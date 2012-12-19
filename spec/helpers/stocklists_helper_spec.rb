@@ -14,3 +14,16 @@ require 'spec_helper'
 # describe StocklistsHelper do
   # pending "add some examples to (or delete) #{__FILE__}"
 # end
+
+describe StocklistsHelper do
+  describe 'show_ipoyear' do
+    it 'returns year from date string' do
+      helper.show_ipoyear("1985-01-01").to_s.should == "1985"
+    end
+    
+    it 'returns nil for nil' do
+      nilobj = nil
+      helper.show_ipoyear(nilobj).should be_nil
+    end
+  end
+end

@@ -14,6 +14,8 @@ gem 'newrelic_rpm'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
+  gem 'jquery-rails', '~> 2.1.2'
+  gem 'jquery_datepicker', '~> 0.4'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'therubyracer', :platform => :ruby
@@ -38,8 +40,6 @@ end
 group :test do
   gem "guard-rspec"
 end
-
-gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

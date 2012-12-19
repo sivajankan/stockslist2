@@ -9,7 +9,7 @@
 .clearfix
   = f.label :ipoyear, t("activerecord.attributes.stocklist.ipoyear", :default => "Ipoyear"), :class => :label
   .input
-    = f.date_select :ipoyear, :class => 'date_select'
+    = select_year show_ipoyear(@stocklist.ipoyear), :start_year => 1976, :end_year => Date.today.year, :field_name => :ipoyear, :prefix => :stocklist, :include_blank => true, :default => nil
 .clearfix
   = f.label :sector, t("activerecord.attributes.stocklist.sector", :default => "Sector"), :class => :label
   .input

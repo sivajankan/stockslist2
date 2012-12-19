@@ -5,7 +5,7 @@
 %label{:class => "label"}= t("activerecord.attributes.stocklist.name", :default => t("activerecord.labels.name", :default => "Name")) + ":"
 %p= @stocklist.name
 %label{:class => "label"}= t("activerecord.attributes.stocklist.ipoyear", :default => t("activerecord.labels.ipoyear", :default => "Ipoyear")) + ":"
-%p= @stocklist.ipoyear
+%p= show_ipoyear @stocklist.ipoyear
 %label{:class => "label"}= t("activerecord.attributes.stocklist.sector", :default => t("activerecord.labels.sector", :default => "Sector")) + ":"
 %p= @stocklist.sector
 %label{:class => "label"}= t("activerecord.attributes.stocklist.industry", :default => t("activerecord.labels.industry", :default => "Industry")) + ":"
