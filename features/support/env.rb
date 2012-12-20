@@ -63,3 +63,27 @@ end
 Cucumber::Rails::Database.javascript_strategy = :truncation
 #Capybara.default_driver = :selenium
 
+require 'simplecov'
+SimpleCov.start do
+  add_filter '/features/'
+  add_filter '/config/'
+  add_filter '/lib/'
+  add_filter '/vendor/'
+ 
+  add_group 'Controllers', 'app/controllers'
+  add_group 'Models', 'app/models'
+  add_group 'Helpers', 'app/helpers'
+  add_group 'Mailers', 'app/mailers'
+  add_group 'Views', 'app/views'
+end if ENV["COVERAGE"]
+
+module SimpleCov::Configuration
+  def clean_filters
+    @filters = []
+  end
+end
+
+SimpleCov.configure do
+  clean_filters
+  load_adapter 'test_frameworks'
+end

@@ -49,7 +49,7 @@ class StocklistsController < ApplicationController
         format.html { redirect_to @stocklist, notice: 'Stocklist was successfully created.' }
         format.json { render json: @stocklist, status: :created, location: @stocklist }
       else
-        format.html { render action: "new" }
+        format.html { render :new }
         format.json { render json: @stocklist.errors, status: :unprocessable_entity }
       end
     end
@@ -67,7 +67,7 @@ class StocklistsController < ApplicationController
         format.html { redirect_to @stocklist, notice: 'Stocklist was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
+        format.html { render :edit }
         format.json { render json: @stocklist.errors, status: :unprocessable_entity }
       end
     end

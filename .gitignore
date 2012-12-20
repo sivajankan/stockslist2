@@ -13,3 +13,9 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# Ignore rails reports
+/rails_best_practices_output.html
+
+# Ignore coverage files
+/coverage
