@@ -39,15 +39,9 @@
 
       .content
         .row
-          .span9
-            = yield
-          .span1 &nbsp;
-          .span3
-            .well.sidebar-nav
-              %h3 Options
-              %ul.nav.nav-list
-                %li.nav-header Links
-                %li= link_to "Home", "/"
+          = yield
+          - if !@no_sidebar
+            = render :partial => 'layouts/sidebar'
 
       %footer
         %p &copy; JKLabs 2012

@@ -1,2 +1,4 @@
-= form_for @stocklist, :url => stocklists_path, :html => { :class => :form } do |f|
-  = render :partial => "form", :locals => {:f => f}
+- @no_sidebar = true
+.span3
+  = form_for @stocklist, :url => stocklists_path, :html => { :class => :form } do |f|
+    = render :partial => "form", :locals => {:f => f}

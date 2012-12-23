@@ -10,3 +10,6 @@ en:
       destroy:  "Delete"
       edit:     "Edit"
       new:      "New"
+      confirm:  "Are you sure?"
+      
+    actions:  "Actions"
