@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.3'
+gem 'yahoofinance'
+gem 'market_beat'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -35,6 +37,8 @@ group :development, :test do
   gem 'launchy'
   gem 'fabrication'
   gem 'simplecov'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :test do

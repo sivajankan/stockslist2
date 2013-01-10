@@ -1,0 +1,34 @@
+- symbol = @stocklist.symbol
+.span7.pull-left
+  .span3.pull-left
+    = render :partial => 'hash_info', :object => @inhash = StockDataFetch.specialized_quotes(symbol, YahooFinance::BASICHASH)
+  
+  .span3.pull-right
+    = render :partial => 'hash_info', :object => @inhash = StockDataFetch.specialized_quotes(symbol, YahooFinance::RATIOHASH)
+
+  .span3.pull-left  
+    %img{:src => StockGoogleGraph.get_google_graph_url(symbol)}
+
+  .span3.pull-right
+    = render :partial => 'hash_info', :object => @inhash = StockDataFetch.specialized_quotes(symbol, YahooFinance::DIVIDENDHASH)
+
+  .span3.pull-left  
+    = render :partial => 'hash_info', :object => @inhash = StockDataFetch.specialized_quotes(symbol, YahooFinance::PRICEHASH)
+
+  .span3.pull-right
+    = render :partial => 'hash_info', :object => @inhash = StockDataFetch.specialized_quotes(symbol, YahooFinance::WEEKS52)
+
+  .span3.pull-right
+    = render :partial => 'hash_info', :object => @inhash = StockDataFetch.specialized_quotes(symbol, YahooFinance::MOVINGAVE)
+
+  .span3.pull-left
+    = render :partial => 'hash_info', :object => @inhash = StockDataFetch.specialized_quotes(symbol, YahooFinance::MARKETOPENHASH)
+
+  .span3.pull-right
+    = render :partial => 'hash_info', :object => @inhash = StockDataFetch.specialized_quotes(symbol, YahooFinance::VOLUMEHASH)
+
+  .span3.pull-right
+    = render :partial => 'hash_info', :object => @inhash =  StockDataFetch.specialized_quotes(symbol, YahooFinance::DATEHASH)
+
+-#  %iframe{:height => "430", :src => "http://www.yahoo.com", :title => "Google Stock Info", :width => "450"}
+-#    %p Incomplete page rendering

@@ -2,14 +2,84 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
-  
-  
   helpers:
     links:
-      destroy:  "Delete"
-      edit:     "Edit"
-      new:      "New"
-      confirm:  "Are you sure?"
+      destroy:     "Delete"
+      edit:       "Edit"
+      new:        "New"
+      confirm:    "Are you sure?"
       
-    actions:  "Actions"
+    actions:      "Actions"
+
+  activerecord:
+    attributes:
+      stocklist:
+        stockexchange: "Exchange"
+        
+  stockcodes:
+    lastTrade:          "Last Trade"
+    change:             "Change"
+    changeInPercent:    "Change%"
+    name:               "Name" 
+    marketCap:          "Market Cap"
+    stockExchange:      "Exchange"
+    aveDailyVol:        "Avg Vol"
+    oneYearTargetPrice: "1 Yr Target Price"
+    ask:                "Ask"
+    bid:                "Bid"
+    previousClose:      "Previous Close"
+    open:               "Open"
+    changeAndPercentChange: "Change"
+    commission:         "Commission"
+    dayLow:             "Low"
+    dayHigh:            "High"
+    lastTradeWithTime:  "Last Trade - Time"
+    dayRange:           "Day Range"
+    dayValueChange:     "Change"
+    lastTradeDate:      "Last Trade Date"
+    lastTradeTime:      "Last Trade Time"
+    earningsPerShare:   "EPS"
+    epsEstimateCurrentYear: "EPS Est Cur Yr"
+    epsEstimateNextYear:  "EPS Est Nxt Yr"
+    epsEstimateNextQuarter: "EPS Est Nxt Qt"
+    peRatio:            "PE"
+    shortRatio:         "Short"
+    pegRatio:           "PEG"
+    bookValue:          "BV"
+    pricePerBook:       "PBV"
+    pricePerSales:      "PPS"
+    ebitda:             "EBITA"
+    pricePerEPSEstimateCurrentYear: "PpEPS Est Cur Yr"
+    pricePerEPSEstimateNextYear: "PpEPS Est Nxt Yr"
+    dividendPerShare:   "Div"
+    dividendYield:      "Div Yld"
+    dividendPayDate:    "Div Dt"
+    exDividendDate:     "Ex Dvd Dt"
+    weeks52Range:       "52 Wk Range"
+    weeks52High:        "52 Wk High"
+    weeks52Low:         "52 Wk Low"
+    weeks52ChangeFromLow: "52 Wk Chg Low"
+    weeks52ChangePercentFromLow: "52 Wk Chg Low %"
+    weeks52ChangeFromHigh: "52 Wk Chg High"
+    weeks52ChangePercentFromHigh: "52 Wk Chg High %"
+    askSize:            "Ask Size"
+    bidSize:            "Bid Size"
+    lastTradeSize:      "Last Trd Size"
+    movingAve50days:    "50Days Mov Avg"
+    movingAve50daysChangeFrom: "50Days Mov Avg Chg"
+    movingAve50daysChangePercentFrom: "50Days Mov Ave Chg %"
+    movingAve200days:   "200Days Mov Avg"
+    movingAve200daysChangeFrom: "200Days Mov Avg Chg"
+    movingAve200daysChangePercentFrom: "200Days Mov Avg Chg %"
+    askRealTime:        "Ask RT"
+    bidRealtime:        "Bid RT"
+    changeRealtime:     "Chg RT"
+    changePercentRealtime: "Chg % RT"
+    afterHoursChangeRealtime: "After Hrs Chg RT"
+    lastTradeRealtimeWithTime: "Last Trade RT"
+    dayValueChangeRealtime: "Day Val Chg RT"
+    dayRangeRealtime:   "Day Range RT"
+    marketCapRealTime:  "Maket Cap RT"
+
+    
+    

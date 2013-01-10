@@ -11,6 +11,10 @@
   .input
     = select_year show_ipoyear(@stocklist.ipoyear), :start_year => 1976, :end_year => Date.today.year, :field_name => :ipoyear, :prefix => :stocklist, :include_blank => true, :default => nil
 .clearfix
+  = f.label :stockexchange, t("activerecord.attributes.stocklist.stockexchange", :default => "Stock Exchange"), :class => :label
+  .input
+    = f.select :stockexchange, options = listed_exchanges, :include_blank => true, :default => nil
+.clearfix
   = f.label :sector, t("activerecord.attributes.stocklist.sector", :default => "Sector"), :class => :label
   .input
     = f.text_field :sector, :class => 'text_field'

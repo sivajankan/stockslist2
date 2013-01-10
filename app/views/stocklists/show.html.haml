@@ -1,22 +1,34 @@
 - @no_sidebar = true
-.span3
+.span3.my-class
   %p#notice= notice
   
-  %label{:class => "label"}= t("activerecord.attributes.stocklist.symbol", :default => t("activerecord.labels.symbol", :default => "Symbol")) + ":"
+  %label{:class => "label"}= t("activerecord.attributes.stocklist.symbol", :default => "Symbol") + ":"
   %p= @stocklist.symbol
-  %label{:class => "label"}= t("activerecord.attributes.stocklist.name", :default => t("activerecord.labels.name", :default => "Name")) + ":"
+  %label{:class => "label"}= t("activerecord.attributes.stocklist.name", :default => "Name") + ":"
   %p= @stocklist.name
-  %label{:class => "label"}= t("activerecord.attributes.stocklist.ipoyear", :default => t("activerecord.labels.ipoyear", :default => "Ipoyear")) + ":"
+  %label{:class => "label"}= t("activerecord.attributes.stocklist.ipoyear", :default => "Ipoyear") + ":"
   %p= show_ipoyear @stocklist.ipoyear
-  %label{:class => "label"}= t("activerecord.attributes.stocklist.sector", :default => t("activerecord.labels.sector", :default => "Sector")) + ":"
+  %label{:class => "label"}= t("activerecord.attributes.stocklist.stockexchange", :default => "Stock Exchange") + ":"
+  %p= @stocklist.stockexchange
+  %label{:class => "label"}= t("activerecord.attributes.stocklist.sector", :default => "Sector") + ":"
   %p= @stocklist.sector
-  %label{:class => "label"}= t("activerecord.attributes.stocklist.industry", :default => t("activerecord.labels.industry", :default => "Industry")) + ":"
+  %label{:class => "label"}= t("activerecord.attributes.stocklist.industry", :default => "Industry") + ":"
   %p= @stocklist.industry
-  %label{:class => "label"}= t("activerecord.attributes.stocklist.marketcap", :default => t("activerecord.labels.marketcap", :default => "Marketcap")) + ":"
+  %label{:class => "label"}= t("activerecord.attributes.stocklist.marketcap", :default => "Marketcap") + ":"
   %p= @stocklist.marketcap
-  
- 
+
     
   .form-actions
     = link_to "Edit", edit_stocklist_path(@stocklist), :class => 'btn btn-small'
     = link_to "Delete", stocklist_path(@stocklist), :method => "delete", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}", :class => 'btn btn-small btn-danger'
+
+.span8.pull-right#stock_info
+
+:javascript
+  $.ajax({
+    url: "/stock_fetch/fetch_data?symbol=#{@stocklist.symbol}",
+    success: function(data) { 
+      $("div#stock_info").html(data);
+    },
+    failure: function(data) { alert("failure"); }
+  });

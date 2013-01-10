@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121112023708) do
+ActiveRecord::Schema.define(:version => 20121223164202) do
 
   create_table "stocklists", :force => true do |t|
     t.string   "symbol"
@@ -19,9 +19,10 @@ ActiveRecord::Schema.define(:version => 20121112023708) do
     t.date     "ipoyear"
     t.string   "sector"
     t.string   "industry"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
     t.string   "marketcap"
+    t.string   "stockexchange"
   end
 
   add_index "stocklists", ["symbol"], :name => "index_stocklists_on_symbol", :unique => true

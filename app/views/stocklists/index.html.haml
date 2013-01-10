@@ -9,6 +9,7 @@
         %th= model_class.human_attribute_name(:symbol)
         %th= model_class.human_attribute_name(:name)
         %th= model_class.human_attribute_name(:ipoyear)
+        %th= model_class.human_attribute_name(:stockexchange)
         %th= model_class.human_attribute_name(:sector)
         %th= model_class.human_attribute_name(:industry)
         %th= model_class.human_attribute_name(:marketcap)
@@ -19,6 +20,7 @@
           %td= link_to stocklist.symbol, stocklist_path(stocklist)
           %td= stocklist.name
           %td= stocklist.ipoyear.year
+          %td= stocklist.stockexchange
           %td= stocklist.sector
           %td= stocklist.industry
           %td= stocklist.marketcap
