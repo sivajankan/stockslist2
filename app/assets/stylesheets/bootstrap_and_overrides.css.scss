@@ -1,8 +1,27 @@
 @import "bootstrap";
 body { padding-top: 60px; }
 
-div.my-class {
-  -webkit-border-radius: 6px;  
-  -moz-border-radius: 6px;  
-  border-radius: 6px;  
+#stock_info, #stock_info2 {
+  width: 350px;
+  qpadding:10px;
+  margin:0px;
+  position:absolute;
+  padding-left:0px;
+  padding-right:10px;
+  border:0px solid gray;
+  margin:0px;
+  top:70px;
+}
+
+#stock_info {
+  left:245px;
+}
+
+#stock_info2 {
+  left:610px;  
+}
+
+#stock_image{
+  border:1px solid gray;
+  width:325px;
 }

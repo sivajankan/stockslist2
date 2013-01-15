@@ -1,5 +1,5 @@
 - @no_sidebar = true
-.span3.my-class
+.span3
   %p#notice= notice
   
   %label{:class => "label"}= t("activerecord.attributes.stocklist.symbol", :default => "Symbol") + ":"
@@ -22,13 +22,21 @@
     = link_to "Edit", edit_stocklist_path(@stocklist), :class => 'btn btn-small'
     = link_to "Delete", stocklist_path(@stocklist), :method => "delete", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}", :class => 'btn btn-small btn-danger'
 
-.span8.pull-right#stock_info
+#stock_info
+#stock_info2
 
 :javascript
   $.ajax({
     url: "/stock_fetch/fetch_data?symbol=#{@stocklist.symbol}",
     success: function(data) { 
       $("div#stock_info").html(data);
+    },
+    failure: function(data) { alert("failure"); }
+  });
+  $.ajax({
+    url: "/stock_fetch/fetch_data?symbol=#{@stocklist.symbol}&hash=2",
+    success: function(data) { 
+      $("div#stock_info2").html(data);
     },
     failure: function(data) { alert("failure"); }
   });

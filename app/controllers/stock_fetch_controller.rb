@@ -3,6 +3,7 @@ class StockFetchController < ApplicationController
     @fetched = "SUCCESSFUL AJAX 123"
     #debugger
     @symbol = params[:symbol]
+    @hash = params[:hash]
     respond_to do |format|
       format.html # fetch_data.html.haml
       format.json { render json: @fetched }
