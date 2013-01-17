@@ -5,7 +5,7 @@ Stockslist2::Application.routes.draw do
   root :to => 'home#index'
   resources :stocklists
   resources :stock_fetch
-
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

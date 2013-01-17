@@ -29,3 +29,7 @@ end
 When /^I dismissed the dialog$/ do
   page.driver.browser.switch_to.alert.dismiss
 end
+
+When /^I click on "(.*?)" icon in the first stock$/ do |id|
+  page.find(:xpath, "//a[contains(@class,'icon-#{id}')]").click
+end
