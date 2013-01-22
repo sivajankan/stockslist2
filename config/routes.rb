@@ -1,6 +1,7 @@
 Stockslist2::Application.routes.draw do
   get "stock_fetch/fetch_data"
-
+  get "stock_fetch/yahoo_info"
+  
   get "home/index"
   root :to => 'home#index'
   resources :stocklists

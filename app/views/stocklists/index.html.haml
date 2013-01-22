@@ -19,7 +19,7 @@
         %tr
           %td= link_to stocklist.symbol, stocklist_path(stocklist)
           %td= stocklist.name
-          %td= stocklist.ipoyear.year
+          %td= stocklist.ipoyear.year if (stocklist.ipoyear)
           %td= stocklist.stockexchange
           %td= stocklist.sector
           %td= stocklist.industry

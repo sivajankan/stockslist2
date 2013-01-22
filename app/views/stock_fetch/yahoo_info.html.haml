@@ -1,0 +1,32 @@
+- @no_sidebar = true
+%h4 Yahoo Info
+.span3
+  = label :yahoo, :symbol, :class => :label
+  = text_field :yahoo, :symbol, :class => 'text_field'
+
+#stock_info
+#stock_info2
+
+:javascript
+  $().ready(function() {
+    $('#yahoo_symbol').bind("change blur", function(){
+      if ($('#yahoo_symbol').val() == '') return true;
+      var values = "yahoo_symbol="+$('#yahoo_symbol').val();
+      $.ajax({
+        url: "#{stock_fetch_fetch_data_path}",
+        data: values,
+        success: function(data) { 
+          $("div#stock_info").html(data);
+        },
+        failure: function(data) { alert("failure"); }
+      });
+      $.ajax({
+        url: "#{stock_fetch_fetch_data_path}?group=2",
+        data: values,
+        success: function(data) { 
+          $("div#stock_info2").html(data);
+        },
+        failure: function(data) { alert("failure"); }
+      });
+    });
+  });
