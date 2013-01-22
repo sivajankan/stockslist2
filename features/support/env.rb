@@ -75,7 +75,7 @@ SimpleCov.start do
   add_group 'Helpers', 'app/helpers'
   add_group 'Mailers', 'app/mailers'
   add_group 'Views', 'app/views'
-end if ENV["COVERAGE"]
+end #if ENV["COVERAGE"]
 
 module SimpleCov::Configuration
   def clean_filters

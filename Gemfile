@@ -32,7 +32,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'cucumber-rails'
   gem 'database_cleaner'
-  gem "capybara", '2.0.0'
+  gem 'capybara', '2.0.1'
   gem 'selenium-webdriver'
   gem 'launchy'
   gem 'fabrication'

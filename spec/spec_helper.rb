@@ -13,7 +13,7 @@ require 'capybara/rails'
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
 require 'simplecov'
-SimpleCov.start do
+SimpleCov.start 'rails' do
   add_filter '/spec/'
   add_filter '/config/'
   add_filter '/lib/'
@@ -24,7 +24,7 @@ SimpleCov.start do
   add_group 'Helpers', 'app/helpers'
   add_group 'Mailers', 'app/mailers'
   add_group 'Views', 'app/views'
-end if ENV["COVERAGE"]
+end #if ENV["COVERAGE"]
 
 module SimpleCov::Configuration
   def clean_filters
@@ -64,4 +64,6 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+  config.include Capybara::DSL
+  config.include Capybara::RSpecMatchers
 end

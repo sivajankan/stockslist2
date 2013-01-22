@@ -1,12 +1,7 @@
 - symbol = @symbol || 'AAPL'
-- hashlist = [YahooFinance::BASICHASH, YahooFinance::PRICEHASH, YahooFinance::MARKETOPENHASH, YahooFinance::DATEHASH, YahooFinance::VOLUMEHASH]
-- hashlist2 = [YahooFinance::RATIOHASH, YahooFinance::DIVIDENDHASH, YahooFinance::WEEKS52, YahooFinance::MOVINGAVE]
-- if @hash == "2"
-  - hashlist = hashlist2
-  
 %div
-  - if @hash == "2"
+  - if @group == "2"
     %img#stock_image{:src => StockGoogleGraph.get_google_graph_url(symbol)}
-  - hashlist.each do |hsh|
+  - @hashlist.each do |hsh|
     = render :partial => 'hash_info', :object => @inhash = StockDataFetch.specialized_quotes(symbol, hsh)
     
