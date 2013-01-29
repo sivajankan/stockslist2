@@ -7,7 +7,6 @@ gem 'market_beat'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
 gem 'haml-rails'
 gem 'newrelic_rpm'
 
@@ -27,6 +26,10 @@ group :assets do
   gem 'twitter-bootstrap-rails', '2.0.2'
 end
 
+group :production do
+  gem 'pg'
+end
+
 group :development, :test do
   gem 'debugger'
   gem 'rspec-rails'
@@ -39,6 +42,7 @@ group :development, :test do
   gem 'simplecov'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'sqlite3'
 end
 
 group :test do
