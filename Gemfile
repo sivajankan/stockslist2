@@ -9,6 +9,7 @@ gem 'market_beat'
 
 gem 'haml-rails'
 gem 'newrelic_rpm'
+gem 'pg'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -24,10 +25,6 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
   gem 'bootstrap-sass', '2.1.1.0'
   gem 'twitter-bootstrap-rails', '2.0.2'
-end
-
-group :production do
-  gem 'pg'
 end
 
 group :development, :test do
