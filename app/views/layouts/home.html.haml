@@ -38,6 +38,8 @@
     .container-fluid
       .content
         .row
+          .notice= notice
+          .alert= alert 
           = yield
           - if !@no_sidebar
             = render :partial => 'layouts/sidebar'

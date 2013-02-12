@@ -11,6 +11,9 @@ gem 'haml-rails'
 gem 'newrelic_rpm'
 gem 'pg'
 gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -41,6 +44,7 @@ group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'sqlite3'
+  gem 'nifty-generators'
 end
 
 group :test do
