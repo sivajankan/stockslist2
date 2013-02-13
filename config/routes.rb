@@ -1,6 +1,7 @@
 Stockslist2::Application.routes.draw do
   devise_for :users
-
+  match '/auth/:provider/callback', :to => 'sessions#create'
+  
   get "stock_fetch/fetch_data"
   get "stock_fetch/yahoo_info"
   

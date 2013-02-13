@@ -17,6 +17,7 @@ en:
         stockexchange: "Exchange"
         
   stockcodes:
+    symbol:             "Stock Symbol"
     lastTrade:          "Last Trade"
     change:             "Change"
     changeInPercent:    "Change%"

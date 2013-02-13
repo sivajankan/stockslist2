@@ -1,11 +1,12 @@
 %table.table-bordered.table-striped
   %tbody
   - #debugger
+  - basicinfo = @inhash.first[1].has_key?('lastTrade') ? true : false
   - @inhash.first[1].each do |key, val|
-    - next if key == 'symbol'
+    - next if key == 'symbol' && !basicinfo
     %tr
       %td{'width'=>'160px', 'align'=>'right'}=t("stockcodes.#{key}", :default => key)
-      %td{'width'=>'160px'}= val
+      %td{'width'=>'160px'}= val.html_safe
     
 
 
