@@ -5,6 +5,9 @@ Stockslist2::Application.routes.draw do
   get "stock_fetch/fetch_data"
   get "stock_fetch/yahoo_info"
   
+  match 'auth/facebook', :as => :auth_facebook_path
+  match 'auth/twitter', :as => :auth_twitter_path
+  
   get "home/index"
   root :to => 'home#index'
   resources :stocklists

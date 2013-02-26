@@ -13,16 +13,15 @@
     :css
       body {
         padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
-        padding-left: 20px;
       }
 
   %body
     .navbar.navbar-fixed-top
       .navbar-inner
-        %a.brand{:href => "/"}Stockslist
+        %a.brand{:href => "#"}Stockslist
         .container.inline
           %ul.nav
-            %li= link_to "Home!", "/"
+            %li= link_to "Home", "/"
             %li= link_to "StocksIndex", :stocklists
             %li= link_to "YahooInfo", :stock_fetch_yahoo_info
         = render :partial => 'layouts/login_icons'
@@ -30,11 +29,12 @@
     .container-fluid
       .content
         .row
-          .notice= notice
+          .span6
+            %p= notice
           - unless alert.nil?
-            .alert= alert 
+            .alert= alert  
           = yield
-          - if @show_sidebar
+          - if !@no_sidebar
             = render :partial => 'layouts/sidebar'
 
     %footer

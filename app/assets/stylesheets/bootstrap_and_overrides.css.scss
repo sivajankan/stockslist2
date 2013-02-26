@@ -27,6 +27,23 @@ body { padding-top: 60px; }
   width:325px;
 }
 
-table_bordered tbody tr td b{
-  font-weight: bold;
+.inline {
+  display: inline;
+}
+
+.login_icons {
+  float:right;
+}
+
+.valign-bottom {
+  a {
+    vertical-align: bottom;
+    color: blue;
+  }
+  vertical-align: bottom;
+  color: red;
+}
+
+body {
+  padding-left: 20px;
 }
