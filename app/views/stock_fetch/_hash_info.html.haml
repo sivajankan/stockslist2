@@ -5,7 +5,7 @@
     - next if key == 'symbol'
     %tr
       %td{'width'=>'160px', 'align'=>'right'}=t("stockcodes.#{key}", :default => key)
-      %td{'width'=>'160px'}= val
+      %td{'width'=>'160px'}= val.html_safe
     
 
 
