@@ -8,7 +8,7 @@ gem 'market_beat'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'haml-rails'
-gem 'newrelic_rpm'
+#gem 'newrelic_rpm'
 gem 'pg'
 gem 'twitter-bootstrap-rails', '2.0.2'
 
