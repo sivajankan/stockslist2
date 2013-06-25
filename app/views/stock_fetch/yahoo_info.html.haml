@@ -9,8 +9,8 @@
 
 :javascript
   $().ready(function() {
-    $('#yahoo_symbol').bind("change blur", function(){
-      if ($('#yahoo_symbol').val() == '') return true;
+    $('#yahoo_symbol').blur(function(){
+      if ($('#yahoo_symbol').val() == '') return false;
       var values = "yahoo_symbol="+$('#yahoo_symbol').val();
       $.ajax({
         url: "#{stock_fetch_fetch_data_path}",
@@ -25,6 +25,8 @@
         data: values,
         success: function(data) { 
           $("div#stock_info2").html(data);
+          $($('#period_selection td')[0]).css('color', 'blue')
+          $($('#period_selection td')[0]).css('text-decoration','underline')
         },
         failure: function(data) { alert("failure"); }
       });

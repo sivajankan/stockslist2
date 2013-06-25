@@ -1,7 +1,19 @@
 - symbol = @symbol || 'AAPL'
 %div
   - if @group == "2"
-    %img#stock_image{:src => StockGoogleGraph.get_google_graph_url(symbol)}
+    %img#stock_image{:src => StockGoogleGraph.get_google_graph_url(symbol) + "&p=1d"}
+    %table.table.table-bordered.table-condensed#period_selection
+      %tr
+        %td 1d
+        %td 3d
+        %td 5d
+        %td 1M
+        %td 3M
+        %td 6M
+        %td 1Y
+        %td 2Y
+        %td 5Y
+        %td max
   - @hashlist.each do |hsh|
     = render :partial => 'hash_info', :object => @inhash = StockDataFetch.specialized_quotes(symbol, hsh)
     

@@ -1,3 +1,13 @@
 // Place all the styles related to the stock_fetch controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+table#period_selection {
+  width: 328px;
+}
+
+table#period_selection td {
+  background-color: grey;
+  text-align: center;
+  font-weight: bold;
+}
