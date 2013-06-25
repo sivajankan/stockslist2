@@ -37,6 +37,8 @@
     url: "#{stock_fetch_fetch_data_path}?yahoo_symbol=#{@stocklist.symbol}&group=2",
     success: function(data) { 
       $("div#stock_info2").html(data);
+      $($('#period_selection td')[0]).css('color', 'blue')
+      $($('#period_selection td')[0]).css('text-decoration','underline')
     },
     failure: function(data) { alert("failure"); }
   });
