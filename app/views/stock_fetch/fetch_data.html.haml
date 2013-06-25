@@ -1,7 +1,7 @@
 - symbol = @symbol || 'AAPL'
 %div
   - if @group == "2"
-    %img#stock_image{:src => StockGoogleGraph.get_google_graph_url(symbol) + "&p=1d"}
+    %img#stock_image{:src => StockGoogleGraph.get_google_graph_url(symbol) + "chs=327x180&p=1d"}
     %table.table.table-bordered.table-condensed#period_selection
       %tr
         %td 1d
