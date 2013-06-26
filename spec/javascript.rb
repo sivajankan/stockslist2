@@ -15,3 +15,8 @@ end
 def wait_until_all_ajax_requests_complete
   sleep(1) until page.evaluate_script('$.active') == 0
 end 
+
+def trigger_key_event(field, key)
+  #debugger
+  find_field(field).native.send_key(key.downcase.to_sym)
+end

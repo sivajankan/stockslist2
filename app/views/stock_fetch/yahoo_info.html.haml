@@ -3,33 +3,19 @@
 .span3
   = label :yahoo, :symbol, :class => :label
   = text_field :yahoo, :symbol, :class => 'text_field'
+  = link_to "Fetch Data", "#", :class => 'btn btn-block', :id => 'fetch_data'
 
 #stock_info
 #stock_info2
 
--#TODO: This code is used in 2 places (view/stock_fetch/yahoo_info.html.haml &views/stocklists/show.html.haml)
-:javascript
-  $().ready(function() {
-    $('#yahoo_symbol').blur(function(){
-      if ($('#yahoo_symbol').val() == '') return false;
-      var values = "yahoo_symbol="+$('#yahoo_symbol').val();
-      $.ajax({
-        url: "#{stock_fetch_fetch_data_path}",
-        data: values,
-        success: function(data) { 
-          $("div#stock_info").html(data);
-        },
-        failure: function(data) { alert("failure"); }
-      });
-      $.ajax({
-        url: "#{stock_fetch_fetch_data_path}?group=2",
-        data: values,
-        success: function(data) { 
-          $("div#stock_info2").html(data);
-          $($('#period_selection td')[0]).css('color', 'blue')
-          $($('#period_selection td')[0]).css('text-decoration','underline')
-        },
-        failure: function(data) { alert("failure"); }
-      });
-    });
-  });
+:coffee
+  tmp_loader = ->
+    return false if ($('#yahoo_symbol').val() == '')
+    load_yahoo_info "#{stock_fetch_fetch_data_path}?yahoo_symbol="+$('#yahoo_symbol').val()
+      
+  $().ready ->
+    $('#yahoo_symbol').blur ->
+      tmp_loader()
+      
+    $('#fetch_data').click ->
+      tmp_loader()

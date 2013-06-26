@@ -40,7 +40,7 @@ end
 group :development, :test do
   gem 'debugger'
   gem 'rspec-rails'
-  gem 'cucumber-rails'
+  gem 'cucumber-rails', :require => false
   gem 'database_cleaner'
   gem 'capybara', '2.0.1'
   gem 'selenium-webdriver'
