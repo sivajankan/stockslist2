@@ -3,8 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 div img#stock_image {
-  border: none
+  border: none;
 }
+
 table#period_selection {
   width: 328px;
 }
@@ -13,4 +14,16 @@ table#period_selection td {
   background-color: grey;
   text-align: center;
   font-weight: bold;
+}
+
+.css_light_box {
+  -webkit-transition: 0.1s ease-out;
+  -moz-transition: 0.1s ease-out;
+  -o-transition: 0.1s ease-out; 
+}
+.css_light_box:hover {
+  -webkit-transform: scale(1.5);
+  -moz-transform: scale(1.5);
+  -o-transform: scale(1.5);
+  -ms-transform: scale(1.5);  
 }
