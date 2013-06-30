@@ -2,7 +2,7 @@
 $.fn.fancyZoom = function(options){
 
   var options   = options || {};
-  var directory = options && options.directory ? options.directory : 'images';
+  var directory = options && options.directory ? options.directory : '/images';
   var zooming   = false;
 
   if ($('#zoom').length == 0) {
