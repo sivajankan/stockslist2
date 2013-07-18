@@ -41,7 +41,8 @@ class StocklistsController < ApplicationController
   # POST /stocklists
   # POST /stocklists.json
   def create
-    @stocklist = Stocklist.new(params[:stocklist])
+    #@stocklist = Stocklist.new(params[:stocklist])
+    @stocklist = Stocklist.create(stocklist_params)
     @stocklist[:ipoyear] = "#{params[:stocklist][:ipoyear]}-01-01"
 
     respond_to do |format|
@@ -63,7 +64,7 @@ class StocklistsController < ApplicationController
     params[:stocklist][:ipoyear] += "-01-01" unless params[:stocklist][:ipoyear].nil?
 
     respond_to do |format|
-      if @stocklist.update_attributes(params[:stocklist])
+      if @stocklist.update!(stocklist_params)
         format.html { redirect_to @stocklist, notice: 'Stocklist was successfully updated.' }
         format.json { head :no_content }
       else
@@ -84,4 +85,9 @@ class StocklistsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  private
+  def stocklist_params
+    params.require(:stocklist).permit(:industry, :ipoyear, :marketcap, :name, :sector, :symbol, :stockexchange)
+  end  
 end

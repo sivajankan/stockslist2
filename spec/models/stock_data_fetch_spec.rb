@@ -8,7 +8,7 @@ describe StockDataFetch do
   end
   
   it 'should return stock info for given stock symbol' do
-    YahooFinance.stub!(:get) {@goog_str}
+    YahooFinance.stub(:get) {@goog_str}
     res = StockDataFetch.standard_quotes('GOOG')
     res['GOOG'].name.should == 'Google Inc.'
     res['GOOG'].symbol.should == 'GOOG'
@@ -16,7 +16,7 @@ describe StockDataFetch do
   end
   
   it 'should return stock info in hash ' do
-    YahooFinance.stub!(:get) {@goog_basic_str}
+    YahooFinance.stub(:get) {@goog_basic_str}
     StockDataFetch.specialized_quotes('GOOG', YahooFinance::BASICHASH).should == {"GOOG"=>{"symbol"=>"GOOG", "lastTrade"=>"123.45", "change"=>"10", "changeInPercent"=>"10%", "dayRange"=>"123.45-123.67", "name"=>"Google still exists", "marketCap"=>"123456", "stockExchange"=>"NYSE", "aveDailyVol"=>"2000"}}
   end
 end

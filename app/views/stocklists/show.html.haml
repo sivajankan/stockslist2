@@ -18,9 +18,9 @@
   %p= @stocklist.marketcap
 
     
-  .form-actions
+  .form-actions 
     = link_to "Edit", edit_stocklist_path(@stocklist), :class => 'btn btn-small'
-    = link_to "Delete", stocklist_path(@stocklist), :method => "delete", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}", :class => 'btn btn-small btn-danger'
+    = link_to "Delete", stocklist_path(@stocklist), :method => "delete", data: {confirm:  t('web-app-theme.confirm', default: 'Are you sure?')}, :class => 'btn btn-small btn-danger'
 
 #stock_info
 #stock_info2

@@ -9,8 +9,8 @@ else
   "~> #{rails_version}"
 end
 
-gem "rails", rails
-
+#gem "rails", rails
+gem "rails", '4.0.0'
 gem 'yahoofinance'
 gem 'market_beat'
 
@@ -25,10 +25,12 @@ gem 'twitter-bootstrap-rails', '2.0.2'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
+  #gem 'sass-rails',   '~> 3.2.3'
+  #gem 'coffee-rails', '~> 3.2.1'
+  gem 'sass-rails'
+  gem 'coffee-rails'
   gem 'jquery-rails', '~> 2.1.2'
-  gem 'jquery_datepicker', '~> 0.4'
+  #gem 'jquery_datepicker', '~> 0.4'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'therubyracer', :platform => :ruby
