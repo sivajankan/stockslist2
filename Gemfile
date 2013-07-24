@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby "2.0.0"
+
 rails_version = ENV["RAILS_VERSION"] || "default"
 
 rails = case rails_version
