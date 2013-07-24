@@ -2,7 +2,10 @@
 -#&chsc=2
 %div
   - if @group == "2"
-    %img#stock_image{:src => StockGoogleGraph.get_google_graph_url(symbol) + "&chsc=2&chs=327x180&p=1d"}
+    - img_url = StockGoogleGraph.get_google_graph_url(symbol)
+    %img#stock_image{src: "#{img_url}&chs=327x180&p=1d", data: {fancydiv: "#fancydiv"}}
+    %div#fancydiv
+      %img#fancy_image{src: "#{img_url}&chsc=3&chs=490x270&p=1d"}
     %table.table.table-bordered.table-condensed#period_selection
       %tr
         %td 1d
@@ -21,5 +24,5 @@
 :coffee
   $().ready ->
     if "#{@group}" == '2'
-      $('#stock_image').fancyZoom({scaleImg: true, closeOnClick: true})
+      $('#stock_image').fancyZoom({scaleImg: true, closeOnClick: true, width: 490, height: 270})
 

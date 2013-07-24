@@ -3,8 +3,16 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 failure = (msg) ->
-  alert msg
-  console.log msg
+  if console && console.log 
+    console.log msg
+  else 
+    alert msg
+  
+stock_image_url = (id, day_text) ->
+  url = $('#'+id).attr('src')
+  url = url.substr(0, url.indexOf('p='))
+  url = url + "p=" + day_text
+  return url
   
 # Fetch yahoo info for given stock symbol
 window.load_yahoo_info = (url) ->
@@ -30,11 +38,11 @@ window.load_yahoo_info = (url) ->
 $().ready ->
   $('#period_selection td').on 'click', (evt) ->
     evt.preventDefault()
-    url = $('#stock_image').attr('src')
-    url = url.substr(0, url.indexOf('p='))
-    url = url + "p=" + $(this).text()
     $('#period_selection td').css('color', 'black')
     $('#period_selection td').css('text-decoration', 'none')
     $(this).css('color', 'blue')
     $(this).css('text-decoration','underline')
-    $("[id$='stock_image']").attr("src", url);
+    $("[id='fancy_image']").attr("src", stock_image_url("fancy_image", $(this).text()));
+    $("[id='stock_image']").attr("src", stock_image_url('stock_image', $(this).text()));
+    return false
+    

@@ -1,6 +1,5 @@
 (function($){
 $.fn.fancyZoom = function(options){
-
   var options   = options || {};
   var directory = options && options.directory ? options.directory : '/images';
   var zooming   = false;
@@ -8,38 +7,43 @@ $.fn.fancyZoom = function(options){
   if ($('#zoom').length == 0) {
     var ext = $.browser.msie ? 'gif' : 'png';
     var html = '<div id="zoom" style="display:none;"> \
-                  <table id="zoom_table" style="border-collapse:collapse; width:100%; height:100%;"> \
-                    <tbody> \
-                      <tr> \
-                        <td class="tl" style="background:url(' + directory + '/tl.' + ext + ') 0 0 no-repeat; width:20px; height:20px; overflow:hidden;" /> \
-                        <td class="tm" style="background:url(' + directory + '/tm.' + ext + ') 0 0 repeat-x; height:20px; overflow:hidden;" /> \
-                        <td class="tr" style="background:url(' + directory + '/tr.' + ext + ') 100% 0 no-repeat; width:20px; height:20px; overflow:hidden;" /> \
-                      </tr> \
-                      <tr> \
-                        <td class="ml" style="background:url(' + directory + '/ml.' + ext + ') 0 0 repeat-y; width:20px; overflow:hidden;" /> \
-                        <td class="mm" style="background:#fff; vertical-align:top; padding:10px;"> \
-                          <div id="zoom_content"> \
-                          </div> \
-                        </td> \
-                        <td class="mr" style="background:url(' + directory + '/mr.' + ext + ') 100% 0 repeat-y;  width:20px; overflow:hidden;" /> \
-                      </tr> \
-                      <tr> \
-                        <td class="bl" style="background:url(' + directory + '/bl.' + ext + ') 0 100% no-repeat; width:20px; height:20px; overflow:hidden;" /> \
-                        <td class="bm" style="background:url(' + directory + '/bm.' + ext + ') 0 100% repeat-x; height:20px; overflow:hidden;" /> \
-                        <td class="br" style="background:url(' + directory + '/br.' + ext + ') 100% 100% no-repeat; width:20px; height:20px; overflow:hidden;" /> \
-                      </tr> \
-                    </tbody> \
-                  </table> \
-                  <a href="#" title="Close" id="zoom_close" style="position:absolute; top:0; left:0;"> \
-                    <img src="' + directory + '/closebox.' + ext + '" alt="Close" style="border:none; margin:0; padding:0;" /> \
-                  </a> \
-                </div>';
+      <table id="zoom_table" style="border-collapse:collapse; width:100%; height:100%;"> \
+      <tbody> \
+        <tr> \
+          <td class="tl" style="background:url(' + directory + '/tl.' + ext + ') 0 0 no-repeat; width:20px; height:20px; overflow:hidden;" /> \
+          <td class="tm" style="background:url(' + directory + '/tm.' + ext + ') 0 0 repeat-x; height:20px; overflow:hidden;" /> \
+          <td class="tr" style="background:url(' + directory + '/tr.' + ext + ') 100% 0 no-repeat; width:20px; height:20px; overflow:hidden;" /> \
+        </tr> \
+        <tr> \
+          <td class="ml" style="background:url(' + directory + '/ml.' + ext + ') 0 0 repeat-y; width:20px; overflow:hidden;" /> \
+          <td class="mm" style="background:#fff; vertical-align:top; padding:10px;"> \
+            <div id="zoom_content"> </div> \
+          </td> \
+          <td class="mr" style="background:url(' + directory + '/mr.' + ext + ') 100% 0 repeat-y;  width:20px; overflow:hidden;" /> \
+        </tr> \
+        <tr> \
+          <td class="bl" style="background:url(' + directory + '/bl.' + ext + ') 0 100% no-repeat; width:20px; height:20px; overflow:hidden;" /> \
+          <td class="bm" style="background:url(' + directory + '/bm.' + ext + ') 0 100% repeat-x; height:20px; overflow:hidden;" /> \
+          <td class="br" style="background:url(' + directory + '/br.' + ext + ') 100% 100% no-repeat; width:20px; height:20px; overflow:hidden;" /> \
+        </tr> \
+      </tbody> \
+      </table> \
+      <a href="#" title="Close" id="zoom_close" style="position:absolute; top:0; left:0;"> \
+        <img src="' + directory + '/closebox.' + ext + '" alt="Close" style="border:none; margin:0; padding:0;" /> \
+      </a> \
+      </div>';
 
     $('body').append(html);
 
-    $('html').click(function(e){if($(e.target).parents('#zoom:visible').length == 0) hide();});
+    $('html').click(function(e){
+      if($(e.target).parents('#zoom:visible').length == 0) {
+        hide();
+      }
+    });
     $(document).keyup(function(event){
-        if (event.keyCode == 27 && $('#zoom:visible').length > 0) hide();
+      if (event.keyCode == 27 && $('#zoom:visible').length > 0) {
+        hide();
+      }
     });
 
     $('#zoom_close').click(hide);
@@ -59,9 +63,13 @@ $.fn.fancyZoom = function(options){
   return this;
 
   function show(e) {
-    if (zooming) return false;
+    if (zooming) {
+      return false;
+    }
 		zooming         = true;
-		var content_div = $($(this).attr('href'));
+		//var content_div = $($(this).attr('href'));
+		//var content_div = $($(this.parentElement).attr('href'));
+		var content_div = $($(this).data('fancydiv'));
   	var zoom_width  = options.width;
 		var zoom_height = options.height;
 
@@ -71,9 +79,9 @@ $.fn.fancyZoom = function(options){
   	var y           = window.pageYOffset || (window.document.documentElement.scrollTop || window.document.body.scrollTop);
   	var window_size = {'width':width, 'height':height, 'x':x, 'y':y}
 
-		var width              = (zoom_width || content_div.width()) + 60;
-		var height             = (zoom_height || content_div.height()) + 60;
-		var d                  = window_size;
+    var width              = (zoom_width || content_div.width()) + 60;
+    var height             = (zoom_height || content_div.height()) + 60;
+    var d                  = window_size;
 
 		// ensure that newTop is at least 0 so it doesn't hide close button
 		var newTop             = Math.max((d.height/2) - (height/2) + y, 0);
@@ -120,12 +128,14 @@ $.fn.fancyZoom = function(options){
 			unfixBackgroundsForIE();
 			zoom_close.show();
 			zooming = false;
-    })
+    });
     return false;
   }
 
   function hide() {
-    if (zooming) return false;
+    if (zooming) {
+      return false;
+    }
 		zooming         = true;
 	  $('#zoom').unbind('click');
 		fixBackgroundsForIE();
