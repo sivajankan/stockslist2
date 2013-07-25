@@ -96,14 +96,14 @@ describe StocklistsController do
       it "assigns a newly created but unsaved stocklist as @stocklist" do
         # Trigger the behavior that occurs when invalid params are submitted
         Stocklist.any_instance.stub(:save).and_return(false)
-        post :create, {:stocklist => {}}, valid_session
+        post :create, {stocklist: {symbol: nil}}, valid_session
         assigns(:stocklist).should be_a_new(Stocklist)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Stocklist.any_instance.stub(:save).and_return(false)
-        post :create, {:stocklist => {}}, valid_session
+        post :create, {stocklist: {symbol: nil}}, valid_session
         response.should render_template("new")
       end
     end
@@ -117,8 +117,8 @@ describe StocklistsController do
         # specifies that the Stocklist created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        Stocklist.any_instance.should_receive(:update).with({'these' => 'params'})
-        put :update, {:id => stocklist.to_param, :stocklist => {'these' => 'params'}}, valid_session
+        Stocklist.any_instance.should_receive(:update).with({'symbol' => 'params'})
+        put :update, {:id => stocklist.to_param, :stocklist => {'symbol' => 'params'}}, valid_session
       end
 
       it "assigns the requested stocklist as @stocklist" do
@@ -139,7 +139,7 @@ describe StocklistsController do
         stocklist = Stocklist.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Stocklist.any_instance.stub(:save).and_return(false)
-        put :update, {:id => stocklist.to_param, :stocklist => {}}, valid_session
+        put :update, {:id => stocklist.to_param, :stocklist => {symbol: 'ABC'}}, valid_session
         assigns(:stocklist).should eq(stocklist)
       end
 
@@ -147,7 +147,7 @@ describe StocklistsController do
         stocklist = Stocklist.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Stocklist.any_instance.stub(:save).and_return(false)
-        put :update, {:id => stocklist.to_param, :stocklist => {}}, valid_session
+        put :update, {:id => stocklist.to_param, :stocklist => {ipoyear: "invalid value"}}, valid_session
         response.should render_template("edit")
       end
     end
