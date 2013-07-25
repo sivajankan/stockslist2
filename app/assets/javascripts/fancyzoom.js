@@ -5,7 +5,8 @@ $.fn.fancyZoom = function(options){
   var zooming   = false;
 
   if ($('#zoom').length == 0) {
-    var ext = ($.browser && $.browser.msie) ? 'gif' : 'png';
+    //var ext = $.browser.msie ? 'gif' : 'png';
+    var ext = $('body').is('.lt-ie9 *') ? 'gif' : 'png';
     var html = '<div id="zoom" style="display:none;"> \
       <table id="zoom_table" style="border-collapse:collapse; width:100%; height:100%;"> \
       <tbody> \
@@ -170,13 +171,13 @@ $.fn.fancyZoom = function(options){
   }
 
   function fixBackgroundsForIE() {
-    if ($.browser.msie && parseFloat($.browser.version) >= 7) {
+    if ($('body').is('.lt-ie9 *')) {
       switchBackgroundImagesTo('gif');
     }
 	}
 
   function unfixBackgroundsForIE() {
-    if ($.browser.msie && $.browser.version >= 7) {
+    if ($('body').is('.lt-ie9 *')) {
       switchBackgroundImagesTo('png');
     }
 	}
