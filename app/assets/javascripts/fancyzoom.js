@@ -5,7 +5,7 @@ $.fn.fancyZoom = function(options){
   var zooming   = false;
 
   if ($('#zoom').length == 0) {
-    var ext = $.browser.msie ? 'gif' : 'png';
+    var ext = ($.browser && $.browser.msie) ? 'gif' : 'png';
     var html = '<div id="zoom" style="display:none;"> \
       <table id="zoom_table" style="border-collapse:collapse; width:100%; height:100%;"> \
       <tbody> \
