@@ -2,10 +2,12 @@
 -#&chsc=2
 %div
   - if @group == "2"
+    - small_img_params = StockGoogleGraph.small_img_params
+    - fancy_img_params = StockGoogleGraph.fancy_img_params
     - img_url = StockGoogleGraph.get_google_graph_url(symbol)
-    %img#stock_image{src: "#{img_url}&chs=327x180&p=1d", data: {fancydiv: "#fancydiv"}}
+    %img#stock_image{src: "#{img_url}&#{small_img_params}", data: {fancydiv: "#fancydiv"}}
     %div#fancydiv
-      %img#fancy_image{src: "#{img_url}&chsc=3&chs=490x270&p=1d"}
+      %img#fancy_image{src: "#{img_url}&#{fancy_img_params}"}
     %table.table.table-bordered.table-condensed#period_selection
       %tr
         %td 1d
