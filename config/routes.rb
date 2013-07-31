@@ -1,4 +1,5 @@
 Stockslist2::Application.routes.draw do
+  devise_for :users
   get "stock_fetch/fetch_data"
   get "stock_fetch/yahoo_info"
   

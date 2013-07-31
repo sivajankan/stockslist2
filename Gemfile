@@ -25,6 +25,9 @@ gem 'haml-rails'
 gem 'pg'
 gem 'twitter-bootstrap-rails', '2.0.2'
 
+gem "devise"
+gem "figaro"
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

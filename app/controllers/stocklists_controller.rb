@@ -1,4 +1,5 @@
 class StocklistsController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_stocklist, only: [:show, :edit, :update, :destroy]
   layout "home"
   # GET /stocklists

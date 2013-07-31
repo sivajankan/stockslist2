@@ -23,3 +23,6 @@
 #lock removed to facilitate multiple version checking
 #http://schneems.com/post/50991826838/testing-against-multiple-rails-versions
 #/Gemfile.lock
+
+# Ignore application configuration
+/config/application.yml
