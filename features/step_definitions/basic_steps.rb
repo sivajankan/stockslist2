@@ -9,15 +9,11 @@ Given /^I visit the home page$/ do
   visit "/"
 end
 
-Then /^I should see "(.*?)"$/ do |content|
-  if page.respond_to? :should
-    page.should have_content(content)
-  else
-    assert page.has_content?(content)
-  end
+Then /^I should( not)? see "([^"]*)"$/ do |negate, content|
+   negate ? (page.should_not have_content(content)) : (page.should have_content(content))
 end
 
-Then /^I should see the "(.*?)" link$/ do |link|
+Then /^I should see the "([^"]*)" link$/ do |link|
   assert page.has_link?(link)
 end
 

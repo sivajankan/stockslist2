@@ -57,5 +57,13 @@ module Stockslist2
     config.assets.version = '1.0'
     
     config.eager_load = false
+    
+    config.to_prepare do
+       Devise::SessionsController.layout "home"
+       Devise::RegistrationsController.layout "home"
+       Devise::ConfirmationsController.layout "home"
+       Devise::UnlocksController.layout "home"
+       Devise::PasswordsController.layout "home"
+    end
   end
 end

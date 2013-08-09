@@ -31,3 +31,11 @@ div#fancydiv {
   display: none;
 }
 
+footer1 {
+ clear: both;
+ position: absolute;
+ z-index: 10;
+ height: 3em;
+ margin-top: -3em;
+ bottom: 0;
+}
