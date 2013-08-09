@@ -47,7 +47,8 @@ group :development, :test do
   gem 'debugger'
   gem 'rspec-rails'
   gem 'cucumber-rails', :require => false
-  gem 'database_cleaner'
+  #gem 'database_cleaner'
+  gem 'database_cleaner', :git => 'https://github.com/tommeier/database_cleaner', :branch => 'fix-superclass'
   gem 'capybara', '2.0.1'
   gem 'selenium-webdriver'
   gem 'launchy'
