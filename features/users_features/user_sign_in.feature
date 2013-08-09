@@ -1,8 +1,6 @@
-@selenium
 Feature: Exploring options available during sign in 
      And user can see yahoo info option without sign in
      
-@pause
 Scenario: As user I can see home page
   Given I visit the home page
    Then I should see "Stockslist"

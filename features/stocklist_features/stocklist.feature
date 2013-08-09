@@ -1,6 +1,10 @@
 Feature: As a regular user 
 	I can create, read, update and delete a stocklist entry
-	
+
+Background: Login with valid credentials
+ Given I exist as a user
+  When I sign in with valid credentials
+  	
 Scenario: I can create new stock entry and see it in index page 
 	Given I am on the home page
 	And I follow the "Stocklists" link

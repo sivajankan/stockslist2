@@ -20,6 +20,11 @@ require 'spec_helper'
 
 describe StocklistsController do
 
+  before :each do
+    @user = FactoryGirl.create(:user)
+    sign_in @user
+  end
+  
   # This should return the minimal set of attributes required to create a valid
   # Stocklist. As you add validations to Stocklist, be sure to
   # update the return value of this method accordingly.

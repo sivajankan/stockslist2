@@ -56,6 +56,7 @@ group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'sqlite3'
+  gem 'factory_girl_rails'
 end
 
 group :test do
