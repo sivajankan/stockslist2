@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe "stocklists/show" do
+  
   before(:each) do
     @stocklist = assign(:stocklist, stub_model(Stocklist,
       :symbol => "Symbol",
@@ -9,6 +10,9 @@ describe "stocklists/show" do
       :sector => "Sector",
       :industry => "Industry"
     ))
+    
+    @user = FactoryGirl.create(:user, admin: true)
+    sign_in @user
   end
 
   it "renders attributes in <p>" do

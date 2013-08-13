@@ -20,6 +20,8 @@ describe "stocklists/index" do
         :ipoyear => "1990-01-01"
       )
     ])
+    @user = FactoryGirl.create(:user, admin: true)
+    sign_in @user    
   end
 
   it "renders a list of stocklists" do

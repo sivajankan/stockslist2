@@ -13,7 +13,8 @@
         %th= model_class.human_attribute_name(:sector)
         %th= model_class.human_attribute_name(:industry)
         %th= model_class.human_attribute_name(:marketcap)
-        %th=t '.actions', :default => t("helpers.actions")
+        - if admin?
+          %th=t '.actions', :default => t("helpers.actions")
     %tbody
       - @stocklists.each do |stocklist|
         %tr
@@ -24,8 +25,10 @@
           %td= stocklist.sector
           %td= stocklist.industry
           %td= stocklist.marketcap
-          %td
-            = link_to '', edit_stocklist_path(stocklist), {:class => 'icon-edit', :title1=>t('.edit', :default => t("helpers.links.edit"))}
-            = link_to '', stocklist_path(stocklist), :method => :delete, data: { confirm: t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'icon-remove'
+          -if admin?
+            %td
+              = link_to '', edit_stocklist_path(stocklist), {:class => 'icon-edit', :title1=>t('.edit', :default => t("helpers.links.edit"))}
+              = link_to '', stocklist_path(stocklist), :method => :delete, data: { confirm: t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'icon-remove'
   
-  = link_to t('.new', :default => t("helpers.links.new")), new_stocklist_path, :class => 'btn btn-primary'
+  - if admin?
+    = link_to t('.new', :default => t("helpers.links.new")), new_stocklist_path, :class => 'btn btn-primary'

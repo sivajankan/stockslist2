@@ -1,4 +1,3 @@
-- @no_sidebar = true
 .span3
   %p#notice= notice
   
@@ -17,10 +16,10 @@
   %label{:class => "label"}= t("activerecord.attributes.stocklist.marketcap", :default => "Marketcap") + ":"
   %p= @stocklist.marketcap
 
-    
-  .form-actions 
-    = link_to "Edit", edit_stocklist_path(@stocklist), :class => 'btn btn-small'
-    = link_to "Delete", stocklist_path(@stocklist), :method => "delete", data: {confirm:  t('web-app-theme.confirm', default: 'Are you sure?')}, :class => 'btn btn-small btn-danger'
+  - if admin?  
+    .form-actions 
+      = link_to "Edit", edit_stocklist_path(@stocklist), :class => 'btn btn-small'
+      = link_to "Delete", stocklist_path(@stocklist), :method => "delete", data: {confirm:  t('web-app-theme.confirm', default: 'Are you sure?')}, :class => 'btn btn-small btn-danger'
 
 #stock_info
 #stock_info2

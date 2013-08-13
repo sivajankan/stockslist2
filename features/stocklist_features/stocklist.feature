@@ -3,7 +3,7 @@ Feature: As a regular user
 
 Background: Login with valid credentials
  Given I exist as a user
-  When I sign in with valid credentials
+   And I sign in with admin credentials
   	
 Scenario: I can create new stock entry and see it in index page 
 	Given I am on the home page

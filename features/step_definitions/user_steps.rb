@@ -5,6 +5,12 @@ def create_visitor
     :password => "changeme", :password_confirmation => "changeme" }
 end
 
+def make_admin
+  @user = find_user
+  @user.admin = true
+  @user.save
+end
+
 def find_user
   @user ||= User.where(:email => @visitor[:email]).first
 end
@@ -77,6 +83,12 @@ end
 ### WHEN ###
 When /^I sign in with valid credentials$/ do
   create_visitor
+  sign_in
+end
+
+When /^I sign in with admin credentials$/ do
+  create_visitor
+  make_admin
   sign_in
 end
 
