@@ -19,7 +19,11 @@ Stockslist2::Application.configure do
 
   # Generate digests for assets URLs
   config.assets.digest = true
-  config.assets.js_compressor  = :uglifier
+  #config.assets.js_compressor  = :uglifier
+  # For angular js, to disable name mangling
+  # ref: http://stackoverflow.com/questions/11922692/selective-rails-3-2-asset-pipeline-compression-per-file/11924505#11924505
+  # http://vaporbase.com/postings/integrating-angular-dot-js-with-rails
+  config.assets.js_compressor = Sprockets::LazyCompressor.new { Uglifier.new(:mangle => false) }
   config.assets.css_compressor = :scss
 
   # Defaults to Rails.root.join("public/assets")

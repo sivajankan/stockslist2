@@ -28,6 +28,8 @@ gem 'twitter-bootstrap-rails', '2.0.2'
 gem "devise"
 gem "figaro"
 
+gem 'angularjs-rails'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -58,6 +60,7 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'sqlite3'
   gem 'factory_girl_rails'
+  gem 'html2haml'
 end
 
 group :test do
