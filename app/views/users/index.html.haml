@@ -1,0 +1,13 @@
+-if !current_user.admin?
+  %h6
+    You dont have admin privileges
+%ul.users
+  - @users.each do |user|
+    %li
+      =link_to user.name, user
+      %ul
+        %li="Signed up on #{user.created_at.to_date}"
+        %li="Total sign in count #{user.sign_in_count}"
+        %li="Current sign in at #{user.current_sign_in_at} IP: #{user.current_sign_in_ip}"
+        %li="Last sign in at #{user.last_sign_in_at} IP: #{user.last_sign_in_at}"
+        %li="Admin: #{user.admin?}"

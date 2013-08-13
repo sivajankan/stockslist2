@@ -45,6 +45,12 @@ def sign_in
   click_button "Sign in"
 end
 
+def update_user
+  fill_in "user_name", with: @visitor[:name]
+  fill_in "user_password", with: ""
+  fill_in "user_current_password", with: @visitor[:password]
+end
+
 ### GIVEN ###
 Given /^I am not logged in$/ do
   visit '/users/sign_out'
@@ -122,7 +128,7 @@ When /^I sign in with a wrong password$/ do
 end
 
 When /^I edit my account details$/ do
-  click_link "Edit account"
+  click_link "EditAccount"
   fill_in "user_name", :with => "newname"
   fill_in "user_current_password", :with => @visitor[:password]
   click_button "Update"
@@ -158,7 +164,7 @@ end
 # end
 
 Then /^I should see a successful sign up message$/ do
-  page.should have_content "A message with a confirmation link has been sent to your email address."
+  page.should have_content "Welcome! You have signed up successfully."
 end
 
 Then /^I should see an invalid email message$/ do
@@ -170,15 +176,18 @@ Then /^I should see a missing password message$/ do
 end
 
 Then /^I should see a missing password confirmation message$/ do
-  page.should have_content "Password doesn't match confirmation"
+  page.should have_content "Password confirmation doesn't match Password"
+  #page.should have_content "Password doesn't match confirmation"
 end
 
 Then /^I should see a mismatched password message$/ do
-  page.should have_content "Password doesn't match confirmation"
+  page.should have_content "Password confirmation doesn't match Password"
+  #page.should have_content "Password doesn't match confirmation"
 end
 
 Then /^I should see a signed out message$/ do
-  page.should have_content "Signed out successfully."
+  #page.should have_content "Signed out successfully."
+  page.should have_content "You need to sign in or sign up before continuing."
 end
 
 Then /^I see an invalid login message$/ do
@@ -192,4 +201,8 @@ end
 Then /^I should see my name$/ do
   create_user
   page.should have_content @user[:name]
+end
+
+When /^I update user info$/ do
+  update_user
 end

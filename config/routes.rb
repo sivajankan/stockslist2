@@ -1,5 +1,13 @@
 Stockslist2::Application.routes.draw do
-  devise_for :users
+  get "users/index"
+  get "users/show"
+  #devise_for :users
+  devise_for :users, controllers: { registrations: "registrations"}
+
+  devise_scope :user do
+    resources :users
+  end  
+
   get "stock_fetch/fetch_data"
   get "stock_fetch/yahoo_info"
   
