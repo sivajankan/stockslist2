@@ -13,8 +13,10 @@
 #= require jquery
 #= require jquery_ujs
 #= require jquery-ui
+#= require angular
 #= require bootstrap
-#= require_tree .
 #= require_self
 #= require fancyzoom
-#= require angular
+#= require app
+#= require_tree ./angular
+#= require_tree .

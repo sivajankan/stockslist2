@@ -1,13 +1,16 @@
 -if !current_user.admin?
   %h6
     You dont have admin privileges
-%ul.users
-  - @users.each do |user|
-    %li
-      =link_to user.name, user
-      %ul
-        %li="Signed up on #{user.created_at.to_date}"
-        %li="Total sign in count #{user.sign_in_count}"
-        %li="Current sign in at #{user.current_sign_in_at} IP: #{user.current_sign_in_ip}"
-        %li="Last sign in at #{user.last_sign_in_at} IP: #{user.last_sign_in_ip}"
-        %li="Admin: #{user.admin?}"
+    
+%div{"ng-app" => "Users", "ng-controller" => "UsersCtrl"}
+  %div{"id" => "user-list-container"}
+    %ul
+      %li{"ng-repeat"=>"user in users", "ng-click"=>"showUser(user)"}
+        %h3 {{user.name}}
+
+  %div{"id"=>"user-view-container", "ng-show"=>"selectedUser"}
+    %h2 {{selectedUser.name}}
+    %p {{selectedUser.email}}
+    %p
+      Created at {{selectedUser.created_at | date: 'mediumDate'}}
+    %p Admin: {{ selectedUser.admin }}

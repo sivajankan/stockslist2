@@ -1,10 +1,11 @@
 !!! 5
-%html{ 'ng-app' => true, :lang => "en"}
+%html{:lang => "en"}
   %head
     %meta{:charset => "utf-8"}/
     %title= content_for?(:title) ? yield(:title) : "Stockslist"
     = csrf_meta_tags
     = javascript_include_tag "application", "data-turbolinks-track" => true
+    = javascript_include_tag "//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular-resource.min.js", "data-turbolinks-track" => true
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     / Le HTML5 shim, for IE6-8 support of HTML elements
     /[if lt IE 9]

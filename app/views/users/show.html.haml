@@ -1,3 +1,15 @@
-.span7
+.span7{ 'ng-app' => true, ng-controller: 'UserInfo'}
+  %p 
+    Name: {{user.name}}
   %p
-    First {{"Angular" + "!"}}
+    Email: {{user.email}}
+  %p
+    Created at: {{user.created_at}}
+  %p
+    Total Sign-in: {{user.sign_in_count}}
+  %p
+    Sign in At: {{user.current_sign_in_at}} IP: {{user.current_sign_in_ip}}
+  %p
+    Last sign in at: {{user.last_sign_in_at}} IP: {{user.last_sign_in_ip}}
+  %p
+    Is Admin?: {{user.admin}}
