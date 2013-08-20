@@ -5,5 +5,5 @@ UsersApp.controller 'UsersCtrl', ['$scope', 'User', ($scope, User) ->
   $scope.showUser = (user) ->
     console.log("selectedUser ", user)
     $scope.selectedUser = user
-    $scope.selectedUser.admin = (user.admin != null)
+    $scope.selectedUser.admin = (user.admin != null && user.admin)
 ]
