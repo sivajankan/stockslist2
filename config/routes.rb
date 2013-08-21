@@ -18,7 +18,9 @@ Stockslist2::Application.routes.draw do
   #resources :stock_fetch
   
   scope :api do
-    get "users(.:format)" => "users#index"
+    get "/users(.:format)" => "users#index"
     get "/users/:id(.:format)" => "users#show"
+    get "/stocklists(.:format)" => "stocklists#index"
+    get "/stocklists/:id(.:format)" => "stocklists#show"
   end
 end

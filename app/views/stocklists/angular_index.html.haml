@@ -1,0 +1,18 @@
+- if admin?
+  = link_to t('.new', :default => t("helpers.links.new")), new_stocklist_path, :class => 'btn btn-primary pull-right', style: "z-index: 10"
+  %h4.blue Listed Stocks
+  
+%div{"ng-app" => "Stocklists", "ng-controller" => "StocklistsCtrl"}
+  %div{"id" => "stocklist-list-container"}
+    %ul
+      %li{"ng-repeat"=>"stocklist in stocklists", "ng-click"=>"showStocklist(stocklist)"}
+        %h5 {{stocklist.symbol}} 
+        %small{:display => 'inline-block'} {{stocklist.name}}
+
+  %div{"id"=>"stocklist-view-container", "ng-show"=>"selectedStocklist"}
+    %h2 {{selectedStocklist.symbol}}
+    %p {{selectedStocklist.name}}
+    %p Exchange: {{selectedStocklist.stockexchange}} 
+    %p {{selectedStocklist.industry}}-{{selectedStocklist.sector}}
+    %p {{selectedStocklist.ipoyear}}
+

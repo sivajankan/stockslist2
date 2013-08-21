@@ -7,19 +7,19 @@ class StocklistsController < ApplicationController
   def index
     @stocklists = Stocklist.all
 
-    # respond_to do |format|
-      # format.html # index.html.erb
-      # format.json { render json: @stocklists }
-    # end
+    respond_to do |format|
+      format.html { render "angular_index" }
+      format.json { render json: @stocklists }
+    end
   end
 
   # GET /stocklists/1
   # GET /stocklists/1.json
   def show
-    # respond_to do |format|
-      # format.html # show.html.erb
-      # format.json { render json: @stocklist }
-    # end
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @stocklist }
+    end
   end
 
   # GET /stocklists/new
