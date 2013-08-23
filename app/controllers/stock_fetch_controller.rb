@@ -1,5 +1,6 @@
 class StockFetchController < ApplicationController
-  def fetch_data
+  
+  def yahoo_data
     @symbol = params[:yahoo_symbol]
     @group = params[:group]
     @hashlist = nil
@@ -12,6 +13,15 @@ class StockFetchController < ApplicationController
       format.html # fetch_data.html.haml
       format.json { render json: @hashlist }
     end
+  end
+  
+  def yahoo_limited_data
+    @symbol = params[:yahoo_symbol]
+    @hashlist = [YahooFinance::BASICHASH, YahooFinance::PRICEHASH]
+    respond_to do |format|
+      format.html { render "yahoo_data" }
+      format.json { render json: @hashlist }
+    end    
   end
   
   def yahoo_info

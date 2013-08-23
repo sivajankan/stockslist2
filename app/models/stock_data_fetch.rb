@@ -14,7 +14,12 @@ class StockGoogleGraph
   require 'market_beat'
   
   def self.get_google_graph_url(symbol)
-    "http://www.google.com#{MarketBeat.chart_url(symbol)}"
+    begin 
+      return "http://www.google.com#{MarketBeat.chart_url(symbol)}"
+    rescue Exception => exp
+      Rails.logger.info("SYMBOL: #{symbol}. ERROR: #{exp.to_s}")
+    end
+    return "/images/no_chart_available.gif?"
   end
   
   def self.small_img_params

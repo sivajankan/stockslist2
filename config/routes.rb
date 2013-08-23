@@ -9,7 +9,8 @@ Stockslist2::Application.routes.draw do
     resources :users
   end  
 
-  get "stock_fetch/fetch_data"
+  get "stock_fetch/yahoo_data"
+  get "stock_fetch/yahoo_limited_data"
   get "stock_fetch/yahoo_info"
   
   get "home/index"

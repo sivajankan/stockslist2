@@ -14,8 +14,8 @@
   background-color: #fff;
   position: absolute;
   min-height: 550px;
-  width: 350px;
-  top: 37px;
+  width: 380px;
+  top: 80px;
   left: 0;
   bottom: 0;
   overflow: auto;
@@ -28,6 +28,9 @@
       cursor: pointer;
       border-bottom: 1px solid #ddd;
       padding: 0 10px;
+    }
+    :hover { 
+        background-color: #ffe; 
     }
   }
   h5 {
@@ -49,8 +52,8 @@
 #stocklist-view-container {
   position: absolute;
   border-left: 1px solid #d0d0d0;
-  top: 90px;
-  left: 350px;
+  top: 30px;
+  left: 380px;
   right: 0;
   bottom: 0;
   background-color: #fff;

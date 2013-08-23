@@ -11,7 +11,7 @@
 :coffee
   tmp_loader = ->
     return false if ($('#yahoo_symbol').val() == '')
-    load_yahoo_info "#{stock_fetch_fetch_data_path}?yahoo_symbol="+$('#yahoo_symbol').val()
+    load_yahoo_info "#{stock_fetch_yahoo_data_path}?yahoo_symbol="+$('#yahoo_symbol').val()
       
   $().ready ->
     $('#yahoo_symbol').blur ->

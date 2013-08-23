@@ -5,21 +5,22 @@
     - small_img_params = StockGoogleGraph.small_img_params
     - fancy_img_params = StockGoogleGraph.fancy_img_params
     - img_url = StockGoogleGraph.get_google_graph_url(symbol)
-    %img#stock_image{src: "#{img_url}&#{small_img_params}", data: {fancydiv: "#fancydiv"}}
-    %div#fancydiv
-      %img#fancy_image{src: "#{img_url}&#{fancy_img_params}"}
-    %table.table.table-bordered.table-condensed#period_selection
-      %tr
-        %td 1d
-        %td 3d
-        %td 5d
-        %td 1M
-        %td 3M
-        %td 6M
-        %td 1Y
-        %td 2Y
-        %td 5Y
-        %td max
+    - unless img_url.nil?
+      %img#stock_image{src: "#{img_url}&#{small_img_params}", data: {fancydiv: "#fancydiv"}}
+      %div#fancydiv
+        %img#fancy_image{src: "#{img_url}&#{fancy_img_params}"}
+      %table.table.table-bordered.table-condensed#period_selection
+        %tr
+          %td 1d
+          %td 3d
+          %td 5d
+          %td 1M
+          %td 3M
+          %td 6M
+          %td 1Y
+          %td 2Y
+          %td 5Y
+          %td max
   - @hashlist.each do |hsh|
     = render :partial => 'hash_info', :object => @inhash = StockDataFetch.specialized_quotes(symbol, hsh)
     
