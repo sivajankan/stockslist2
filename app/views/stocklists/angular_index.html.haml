@@ -1,12 +1,14 @@
 - if admin?
   = link_to t('.new', :default => t("helpers.links.new")), new_stocklist_path, :class => 'btn btn-primary pull-right', style: "z-index: 10"
 
-%h4{style: "color: blue;"} Listed Stocks
-  
 %div{"ng-app" => "Stocklists", "ng-controller" => "StocklistsCtrl"}
+  %div{style: "width: 380px"}
+    %h4{style: "color: blue; display: inline-block"} Listed Stocks
+    %input.input-small.search-query.pull-right{type:"text", "ng-model" => 's_symbol', style: "display: inline-block"}
+
   %div{"id" => "stocklist-list-container"}
     %ul
-      %li{"ng-repeat"=>"stocklist in stocklists| orderBy:predicate:reverse", "ng-click"=>"showStocklist(stocklist)"}
+      %li{"ng-repeat"=>"stocklist in stocklists| filter: s_symbol | orderBy:predicate:reverse", "ng-click"=>"showStocklist(stocklist)"}
         %h5 {{stocklist.symbol}} 
         %small{:display => 'inline-block'} {{stocklist.name}}
 
@@ -17,8 +19,3 @@
     %p Industry: {{selectedStocklist.industry}}
     %p Sector: {{selectedStocklist.sector}}
     %p {{selectedStocklist.ipoyear}}
-      
-    %div#stock_info
-
-:coffee
-  load_yahoo_info "#{stock_fetch_yahoo_limited_data_path}?yahoo_symbol=AAPL"
