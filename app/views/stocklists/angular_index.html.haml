@@ -4,11 +4,11 @@
 %div{"ng-app" => "Stocklists", "ng-controller" => "StocklistsCtrl"}
   %div{style: "width: 380px"}
     %h4{style: "color: blue; display: inline-block"} Listed Stocks
-    %input.input-small.search-query.pull-right{type:"text", "ng-model" => 's_symbol', style: "display: inline-block"}
+    %input.input-small.search-query.pull-right{type:"text", "ng-model" => 'filter.symbol', style: "display: inline-block"}
 
   %div{"id" => "stocklist-list-container"}
     %ul
-      %li{"ng-repeat"=>"stocklist in stocklists| filter: s_symbol | orderBy:predicate:reverse", "ng-click"=>"showStocklist(stocklist)"}
+      %li{"ng-repeat"=>"stocklist in stocklists| filter: filter.symbol | orderBy:predicate:reverse", "ng-click"=>"showStocklist(stocklist)"}
         %h5 {{stocklist.symbol}} 
         %small{:display => 'inline-block'} {{stocklist.name}}
 
