@@ -1,7 +1,7 @@
-- if admin?
-  = link_to t('.new', :default => t("helpers.links.new")), new_stocklist_path, :class => 'btn btn-primary pull-right', style: "z-index: 10"
-
 %div{"ng-app" => "Stocklists", "ng-controller" => "StocklistsCtrl"}
+  - if admin?
+    %button.button-mini{"ng-click" => "showNewStocklist()", :class => 'btn btn-primary pull-right'}
+      Add
   %div{style: "width: 380px"}
     %h4{style: "color: blue; display: inline-block"} Listed Stocks
     %input.input-mini.search-query.pull-right{type:"text", "ng-model" => 'search.symbol', style: "display: inline-block", placeholder: "Symbol"}
@@ -20,3 +20,21 @@
     %p Industry: {{selectedStocklist.industry}}
     %p Sector: {{selectedStocklist.sector}}
     %p {{selectedStocklist.ipoyear}}
+      
+  %div{"id"=>"stocklist-new-container"}
+    %form{"ng-submit" => "stocklists.push(newStocklist); newStocklist={}"}
+      %p
+        %input.input-small{:type => "text", "ng-model" => "newStocklist.symbol", :placeholder => "Symbol"}
+      %p
+        %input.input-xlarge{:type => "text", "ng-model" => "newStocklist.name", :placeholder => "Name"}
+      %p
+        %input.input-medium{:type => "text", "ng-model" => "newStocklist.stockexchange", :placeholder => "Exchange"}
+      %p
+        %input.input-medium{:type => "text", "ng-model" => "newStocklist.industry", :placeholder => "Industry"}
+      %p
+        %input.input-medium{:type => "text", "ng-model" => "newStocklist.sector", :placeholder => "Sector"}
+      %p  
+        %input.input-mini{:type => "text", "ng-model" => "newStocklist.ipoyear", :placeholder => "IPO-Year"}
+      %p  
+        %button.button-medium{:type => "Submit"}
+          Save

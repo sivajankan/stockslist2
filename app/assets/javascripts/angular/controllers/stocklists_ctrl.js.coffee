@@ -5,5 +5,12 @@ StocklistsApp.controller 'StocklistsCtrl', ['$scope', 'Stocklist', ($scope, Stoc
   
   $scope.showStocklist = (stocklist) ->
     console.log("selectedStocklist ", stocklist)
+    $('#stocklist-new-container').hide()
     $scope.selectedStocklist = stocklist
+    
+  $scope.showNewStocklist = () ->
+    console.log("New stocklist is loaded")
+    $scope.selectedStocklist = undefined
+    $('#stocklist-new-container').show()
+    
 ]
