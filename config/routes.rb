@@ -23,5 +23,6 @@ Stockslist2::Application.routes.draw do
     get "/users/:id(.:format)" => "users#show"
     get "/stocklists(.:format)" => "stocklists#index"
     get "/stocklists/:id(.:format)" => "stocklists#show"
+    post "/stocklists(.:format)" => "stocklists#create"
   end
 end

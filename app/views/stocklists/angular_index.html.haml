@@ -58,7 +58,7 @@
     -#    Update
       
   %div{"id"=>"stocklist-new-container"}
-    %form{"ng-submit" => "stocklists.push(newStocklist); newStocklist={}"}
+    %form{"ng-submit" => "addNewStocklist(newStocklist); newStocklist={}"}
       %p
         %input.input-small{:type => "text", "ng-model" => "newStocklist.symbol", :placeholder => "Symbol"}
       %p
