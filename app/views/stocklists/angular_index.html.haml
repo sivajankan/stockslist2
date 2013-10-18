@@ -1,11 +1,13 @@
+- editable = admin? ? true : false
+  
 %div{"ng-app" => "Stocklists", "ng-controller" => "StocklistsCtrl"}
   - if admin?
     %button.button-mini{"ng-click" => "showNewStocklist()", :class => 'btn btn-primary pull-right'}
       Add
   %div{style: "width: 380px"}
     %h4{style: "color: blue; display: inline-block"} Listed Stocks
-    %input.input-mini.search-query.pull-right{type:"text", "ng-model" => 'search.symbol', style: "display: inline-block", placeholder: "Symbol"}
-    %input.input-small.search-query.pull-right{type:"text", "ng-model" => 'search.name', style: "display: inline-block", placeholder: "Name"}    
+    %input.inline.input-mini.search-query.pull-right{type:"text", "ng-model" => 'search.symbol', placeholder: "Symbol"}
+    %input.inline.input-small.search-query.pull-right{type:"text", "ng-model" => 'search.name', placeholder: "Name"}    
 
   %div{"id" => "stocklist-list-container"}
     %ul
@@ -13,13 +15,47 @@
         %h5 {{stocklist.symbol}} 
         %small{:display => 'inline-block'} {{stocklist.name}}
 
+
   %div{"id"=>"stocklist-view-container", "ng-show"=>"selectedStocklist"}
     %h4 {{selectedStocklist.symbol}}
-    %p {{selectedStocklist.name}}
-    %p Exchange: {{selectedStocklist.stockexchange}} 
-    %p Industry: {{selectedStocklist.industry}}
-    %p Sector: {{selectedStocklist.sector}}
-    %p {{selectedStocklist.ipoyear}}
+
+    - if admin?
+      %i{:class=>"icon-edit"}     
+    %div{"contentEditable"=>"#{editable}", "ng-model"=>"selectedStocklist.name"}
+      {{selectedStocklist.name}}
+    %br
+    
+    %div Exchange:
+    - if admin?
+      %i{:class=>"icon-edit"}  
+    %div{"contentEditable"=>"#{editable}", "ng-model"=>"selectedStocklist.stockexchange"}
+      {{selectedStocklist.stockexchange}}
+    %br
+    
+    %div.inline Industry: 
+    - if admin?
+      %i{:class=>"icon-edit"}
+    %div.inline{"contentEditable"=>"#{editable}", "ng-model"=>"selectedStocklist.industry"}
+      {{selectedStocklist.industry}}
+    %br  
+    
+    %div.inline Sector: 
+    - if admin?
+      %i{:class=>"icon-edit"} 
+    %div.inline{"contentEditable"=>"#{editable}", "ng-model"=>"selectedStocklist.sector"}
+      {{selectedStocklist.sector}}
+    %br
+    
+    %div.inline IPO Year: 
+    - if admin?
+      %i{:class=>"icon-edit"} 
+    %div.inline{"contentEditable"=>"#{editable}", "ng-model"=>"selectedStocklist.ipoyear"}
+      {{selectedStocklist.ipoyear||'NONE'}}
+    %br
+    
+    -# if admin?
+    -#  %button.button-mini{"ng-click" => "updateStocklist()", :class => 'btn'}
+    -#    Update
       
   %div{"id"=>"stocklist-new-container"}
     %form{"ng-submit" => "stocklists.push(newStocklist); newStocklist={}"}

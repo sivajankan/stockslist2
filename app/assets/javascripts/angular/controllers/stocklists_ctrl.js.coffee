@@ -4,13 +4,20 @@ StocklistsApp.controller 'StocklistsCtrl', ['$scope', 'Stocklist', ($scope, Stoc
   $scope.predicate = 'symbol'
   
   $scope.showStocklist = (stocklist) ->
-    console.log("selectedStocklist ", stocklist)
+    #console.log("selectedStocklist ", stocklist)
     $('#stocklist-new-container').hide()
     $scope.selectedStocklist = stocklist
     
   $scope.showNewStocklist = () ->
-    console.log("New stocklist is loaded")
+    #console.log("New stocklist is loaded")
     $scope.selectedStocklist = undefined
     $('#stocklist-new-container').show()
+    
+  $scope.addNewStocklist = (newStocklist) ->
+    $scope.stocklists.push(newStocklist)
+    Stocklist.save(newStocklist)
+    
+  #$scope.updateStocklist = (edited) ->
+  #  console.log("edited", angular.copy(edited))
     
 ]
