@@ -24,5 +24,7 @@ Stockslist2::Application.routes.draw do
     get "/stocklists(.:format)" => "stocklists#index"
     get "/stocklists/:id(.:format)" => "stocklists#show"
     post "/stocklists(.:format)" => "stocklists#create"
+    put "/stocklists/:id(.:format)" => "stocklists#update"
+    delete "/stocklists/:id(.:format)" => "stocklists#destroy"
   end
 end

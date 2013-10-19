@@ -14,7 +14,11 @@
       %li{"ng-repeat"=>"stocklist in stocklists| filter:search | orderBy:predicate:reverse", "ng-click"=>"showStocklist(stocklist)"}
         %h5 {{stocklist.symbol}} 
         %small{:display => 'inline-block'} {{stocklist.name}}
-
+        -# if admin?
+        -#  %p{"ng-click" => "deleteStocklist($index)", :class => 'icon-remove pull-right'}
+        -#  %button.button-mini{"ng-click" => "deleteStocklist($index)", :class => 'btn btn-danger btn-primary'}
+        -#    Delete
+        -#= link_to '', stocklist_path({{stocklist}}), :method => :delete, data: { :confirm => 'Are you sure?' }, :class => 'icon-remove'
 
   %div{"id"=>"stocklist-view-container", "ng-show"=>"selectedStocklist"}
     %h4 {{selectedStocklist.symbol}}
@@ -53,9 +57,16 @@
       {{selectedStocklist.ipoyear||'NONE'}}
     %br
     
-    -# if admin?
-    -#  %button.button-mini{"ng-click" => "updateStocklist()", :class => 'btn'}
-    -#    Update
+    %br
+      - if admin?
+        %button.button-mini{"ng-click" => "updateStocklist(selectedStocklist)", :class => 'btn'}
+          Update
+        %button.button-mini{"confirmed-click" => "deleteStocklist(selectedStocklist)", 
+                  "ng-confirm-click" => "Do you want to delete?",
+                  :class => 'btn btn-danger btn-primary',}
+          Delete
+                 
+
       
   %div{"id"=>"stocklist-new-container"}
     %form{"ng-submit" => "addNewStocklist(newStocklist); newStocklist={}"}

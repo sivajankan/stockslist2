@@ -2,24 +2,20 @@ StocklistsApp.directive "contenteditable", ->
   require: "ngModel"
   link: (scope, elm, attrs, ctrl) ->
     #console.log "link is called"
-    console.log("ATTR:", attrs)
-    console.log("ELM:", elm)
-    console.log("CTRL:", ctrl)
     
     # view -> model
     elm.on "blur", ->
       scope.$apply ->
-        #console.log "showing in apply"
-        ctrl.$setViewValue elm.html()
+        ctrl.$setViewValue elm.html().trim().replace(/[&]nbsp[;]/gi," "); 
     
     # model -> view
     ctrl.$render = (value) ->
-      #console.log "showing in render"
       elm.html value
 
     # load init value from DOM
     #console.log "showing in default"
     #ctrl.$setViewValue elm.html()
+
 
 
 # StocklistsApp.directive "contenteditable", ->
