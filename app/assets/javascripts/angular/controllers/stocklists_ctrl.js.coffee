@@ -17,12 +17,12 @@ StocklistsApp.controller 'StocklistsCtrl', ['$scope', 'Stocklist', ($scope, Stoc
     
   $scope.deleteStocklist = (delStocklist) ->
     index = $scope.stocklists.indexOf(delStocklist)
-    Stocklist.delete(delStocklist)
     $scope.stocklists.splice(index, 1)
+    Stocklist.delete(delStocklist)
     $scope.selectedStocklist = null
     
+     
   $scope.updateStocklist = (updateStocklist) ->
-    console.log("updateStocklist", angular.copy(updateStocklist))
     Stocklist.update(updateStocklist)
     
 ]

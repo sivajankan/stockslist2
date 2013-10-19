@@ -6,3 +6,6 @@ StocklistsApp.directive "ngConfirmClick", ->
     element.bind "click", (event) ->
       if ( window.confirm(msg) )
         scope.$apply(scope.$eval(clickAction))
+      
+      event.preventDefault()
+      false

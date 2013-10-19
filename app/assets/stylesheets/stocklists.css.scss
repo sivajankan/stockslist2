@@ -14,7 +14,7 @@
   background-color: #fff;
   position: absolute;
   min-height: 550px;
-  width: 380px;
+  width: 420px;
   top: 80px;
   left: 0;
   bottom: 0;
@@ -29,7 +29,11 @@
       padding: 0 10px;
     }
     :hover { 
-        background-color: #ffe; 
+      background-color: #ffe; 
+      
+     .angular_remove {
+        visibility: visible;
+      }
     }
   }
   h5 {
@@ -52,7 +56,7 @@
   position: absolute;
   border-left: 1px solid #d0d0d0;
   top: 80px;
-  left: 380px;
+  left: 425px;
   right: 0;
   bottom: 0;
   background-color: #fff;
@@ -70,4 +74,10 @@
 
 #stocklist-new-container {
   display: none;
+}
+
+.angular_remove {
+  margin-top: 11px;
+  vertical-align: middle;
+  visibility:hidden; 
 }
