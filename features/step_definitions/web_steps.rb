@@ -31,6 +31,10 @@ When /^(?:|I) follow the "(.*?)" link$/ do |link|
   click_link(link)
 end
 
+When /^I click on "(.*?)" stocklist entry$/ do |text|
+  find("h5", text: text).click
+end
+
 When /^I click the "(.*?)" button$/ do |button_text|
   click_button button_text
 end
@@ -59,8 +63,8 @@ When /^I dismissed the dialog$/ do
   page.driver.browser.switch_to.alert.dismiss
 end
 
-When /^I click on "([^"]*)" icon in the first stock$/ do |id|
-  page.find(:xpath, "//a[contains(@class,'icon-#{id}')]").click
+When /^I click on "([^"]*)" icon in the first stock$/ do |cls|
+  page.find(:xpath, "//p[contains(@class,'icon-#{cls}')]", :visible => false).click
 end
 
 Then /^(?:|I )should see "([^"]*)" image$/ do |image|

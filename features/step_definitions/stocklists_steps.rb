@@ -7,7 +7,7 @@ When /^I am on the stocklist page$/ do
 end
 
 Then /^I should see no stock entry listed$/ do
-  all("table tbody tr").count.should == 0
+  all("ul li").count.should == 0
 end
 
 Then /^I can verify google stock graph image updated based on period selection:$/ do |table|

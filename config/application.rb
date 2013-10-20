@@ -74,6 +74,6 @@ module Stockslist2
       g.stylesheets = false
       g.javascripts = false
       g.helper = false
-    end    
+    end
   end
 end

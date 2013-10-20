@@ -4,7 +4,7 @@ describe StockFetchController do
 
   describe "GET 'fetch_data'" do
     it "returns http success" do
-      get 'fetch_data'
+      get 'yahoo_data'
       response.should be_success
     end
   end

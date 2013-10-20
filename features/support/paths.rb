@@ -16,6 +16,15 @@ module NavigationHelpers
     when /the "([^"]*)" table/
       [:xpath, "//table[@id='#{$1}']"]
       
+    when /new stocklist container/
+      [:xpath, "//div[@id='stocklist-new-container']"]
+      
+    when /view stocklist container/
+      [:xpath, "//div[@id='stocklist-view-container']"]      
+      
+    when /list stocklist container/
+      [:xpath, "//div[@id='stocklist-list-container']"]  
+      
     # You can also return an array to use a different selector
     # type, like:
     #

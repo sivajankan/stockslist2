@@ -6,12 +6,15 @@
       Add
   %div{style: "width: 380px"}
     %h4{style: "color: blue; display: inline-block"} Listed Stocks
-    %input.inline.input-mini.search-query.pull-right{type:"text", "ng-model" => 'search.symbol', placeholder: "Symbol"}
-    %input.inline.input-small.search-query.pull-right{type:"text", "ng-model" => 'search.name', placeholder: "Name"}    
+    %input{type:"text", "ng-model" => 'search.symbol', placeholder: "Symbol",
+          class: "inline input-mini search-query pull-right symbol_field"}
+    %input{type:"text", "ng-model" => 'search.name', placeholder: "Name",
+          class: "inline input-small search-query pull-right"}    
 
   %div{"id" => "stocklist-list-container"}
     %ul
-      %li{"ng-repeat"=>"stocklist in stocklists| filter:search | orderBy:predicate:reverse", "ng-click"=>"showStocklist(stocklist)"}
+      %li{"ng-repeat"=>"stocklist in stocklists| filter:search | orderBy:predicate:reverse", 
+          "ng-click"=>"showStocklist(stocklist)"}
         %h5 {{stocklist.symbol}} 
         %small{:display => 'inline-block'} {{stocklist.name}}
         - if admin?
@@ -19,33 +22,38 @@
                   "ng-confirm-click" => "Do you want to delete?",
                    :class => 'icon-remove pull-right angular_remove'}
 
-  %div{"id"=>"stocklist-view-container", "ng-show"=>"selectedStocklist"}
+  %div{"id"=>"stocklist-view-container", 
+       "ng-show"=>"selectedStocklist"}
     %h4 {{selectedStocklist.symbol}}
 
     - if admin?
       %i{:class=>"icon-edit"}     
-    %div{"contentEditable"=>"#{editable}", "ng-model"=>"selectedStocklist.name"}
+    %div{"contentEditable"=>"#{editable}", 
+         "ng-model"=>"selectedStocklist.name"}
       {{selectedStocklist.name}}
     %br
     
-    %div Exchange:
+    %div.inline Exchange:
     - if admin?
       %i{:class=>"icon-edit"}  
-    %div{"contentEditable"=>"#{editable}", "ng-model"=>"selectedStocklist.stockexchange"}
+    %div.inline{"contentEditable"=>"#{editable}", 
+         "ng-model"=>"selectedStocklist.stockexchange"}
       {{selectedStocklist.stockexchange}}
     %br
     
     %div.inline Industry: 
     - if admin?
       %i{:class=>"icon-edit"}
-    %div.inline{"contentEditable"=>"#{editable}", "ng-model"=>"selectedStocklist.industry"}
+    %div.inline{"contentEditable"=>"#{editable}", 
+                "ng-model"=>"selectedStocklist.industry"}
       {{selectedStocklist.industry}}
     %br  
     
     %div.inline Sector: 
     - if admin?
       %i{:class=>"icon-edit"} 
-    %div.inline{"contentEditable"=>"#{editable}", "ng-model"=>"selectedStocklist.sector"}
+    %div.inline{"contentEditable"=>"#{editable}", 
+                "ng-model"=>"selectedStocklist.sector"}
       {{selectedStocklist.sector}}
     %br
     
@@ -62,7 +70,7 @@
           Update
         %button.button-mini{"confirmed-click" => "deleteStocklist(selectedStocklist)", 
                   "ng-confirm-click" => "Do you want to delete?",
-                  :class => 'btn btn-danger btn-primary',}
+                  :class => 'btn btn-danger btn-primary'}
           Delete
                  
 
@@ -70,17 +78,23 @@
   %div{"id"=>"stocklist-new-container"}
     %form{"ng-submit" => "addNewStocklist(newStocklist); newStocklist={}"}
       %p
-        %input.input-small{:type => "text", "ng-model" => "newStocklist.symbol", :placeholder => "Symbol"}
+        %input.input-small{:type => "text", "ng-model" => "newStocklist.symbol",
+                 :placeholder => "Symbol", :class => 'symbol_field'}
       %p
-        %input.input-xlarge{:type => "text", "ng-model" => "newStocklist.name", :placeholder => "Name"}
+        %input.input-xlarge{:type => "text", "ng-model" => "newStocklist.name", 
+                            :placeholder => "Name"}
       %p
-        %input.input-medium{:type => "text", "ng-model" => "newStocklist.stockexchange", :placeholder => "Exchange"}
+        %input.input-medium{:type => "text", "ng-model" => "newStocklist.stockexchange",
+                            :placeholder => "Exchange"}
       %p
-        %input.input-medium{:type => "text", "ng-model" => "newStocklist.industry", :placeholder => "Industry"}
+        %input.input-medium{:type => "text", "ng-model" => "newStocklist.industry", 
+                            :placeholder => "Industry"}
       %p
-        %input.input-medium{:type => "text", "ng-model" => "newStocklist.sector", :placeholder => "Sector"}
+        %input.input-medium{:type => "text", "ng-model" => "newStocklist.sector", 
+                            :placeholder => "Sector"}
       %p  
-        %input.input-mini{:type => "text", "ng-model" => "newStocklist.ipoyear", :placeholder => "IPO-Year"}
+        %input.input-mini{:type => "text", "ng-model" => "newStocklist.ipoyear", 
+                          :placeholder => "IPO-Year"}
       %p  
         %button.button-medium{:type => "Submit"}
           Save
