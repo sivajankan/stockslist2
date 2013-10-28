@@ -1,0 +1,8 @@
+http://finance.yahoo.com/d/quotes.csv?s=BBDB.TO+NT.TO+GE+MSFT&f=snl1d1t1ohgdr 
+http://chartapi.finance.yahoo.com/instrument/1.0/USDJPY=X/chartdata;type=quote;range=2d/csv/
+
+http://download.finance.yahoo.com/d/quotes.csv - downloads empty csv with 'Missing Symbols List.'
+
+reference
+http://www.gummy-stuff.org/Yahoo-data.htm
+

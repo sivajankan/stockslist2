@@ -1,0 +1,23 @@
+%div{"id"=>"stocklist-new-container"}
+  %form{"ng-submit" => "addNewStocklist(newStocklist); newStocklist={}"}
+    %p
+      %input.input-small{:type => "text", "ng-model" => "newStocklist.symbol",
+               :placeholder => "Symbol", :class => 'symbol_field'}
+    %p
+      %input.input-xlarge{:type => "text", "ng-model" => "newStocklist.name", 
+                          :placeholder => "Name"}
+    %p
+      %input.input-medium{:type => "text", "ng-model" => "newStocklist.stockexchange",
+                          :placeholder => "Exchange"}
+    %p
+      %input.input-medium{:type => "text", "ng-model" => "newStocklist.industry", 
+                          :placeholder => "Industry"}
+    %p
+      %input.input-medium{:type => "text", "ng-model" => "newStocklist.sector", 
+                          :placeholder => "Sector"}
+    %p  
+      %input.input-mini{:type => "text", "ng-model" => "newStocklist.ipoyear", 
+                        :placeholder => "IPO-Year"}
+    %p  
+      %button.button-medium{:type => "Submit"}
+        Save

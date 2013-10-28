@@ -15,12 +15,13 @@ class StockFetchController < ApplicationController
     end
   end
   
-  def yahoo_limited_data
+  def yahoo_short_info
     @symbol = params[:yahoo_symbol]
-    @hashlist = [YahooFinance::BASICHASH, YahooFinance::PRICEHASH]
+    @hashlist = [YahooFinance::SHORTINFO]
+    @result = StockDataFetch.specialized_quotes(@symbol, @hashlist.first)
     respond_to do |format|
       format.html { render "yahoo_data" }
-      format.json { render json: @hashlist }
+      format.json { render json: @result }
     end    
   end
   

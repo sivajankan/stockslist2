@@ -151,6 +151,31 @@ module YahooFinance
     "n4" => [ "notes", "val" ],
     "x" => [ "stockExchange", "val" ]
   }
+  
+  SHORTINFO = {
+    "s" => [ "symbol", "val" ],
+    "l1" => [ "lastTrade", "val.to_f" ],
+    "c1" => [ "change", "val" ],
+    "p2" => [ "changeInPercent", "val" ],
+    "m" => [ "dayRange", "val" ],
+    "n" => [ "name", "val" ],
+    "j1" => [ "marketCap", "convert(val)" ],
+    "x" => [ "stockExchange", "val" ],
+    "w" => [ "weeks52Range", "val" ],
+    "e" => [ "earningsPerShare", "val.to_f" ],
+    "r" => [ "peRatio", "val.to_f" ],
+    "d" => [ "dividendPerShare", "convert(val)" ],
+    "y" => [ "dividendYield", "convert(val)" ],
+    "q" => [ "exDividendDate", "val" ],
+    "r1" => [ "dividendPayDate", "val" ],
+    "m3" => [ "movingAve50days", "val" ],
+    "m4" => [ "movingAve200days", "val" ],
+    "r5" => [ "pegRatio", "val.to_f" ],
+    "b4" => [ "bookValue", "val.to_f" ],
+    "p6" => [ "pricePerBook", "val.to_f" ],
+    "p5" => [ "pricePerSales", "val.to_f" ],
+    "j4" => [ "ebitda", "val" ]
+  }
 
   def YahooFinance.get_specialized_quotes( symbols, hash )
     csvquotes = YahooFinance::get( symbols, hash.keys.join )

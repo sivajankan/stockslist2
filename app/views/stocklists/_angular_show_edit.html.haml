@@ -1,0 +1,50 @@
+%div{"id"=>"stocklist-view-container", 
+     "ng-show"=>"selectedStocklist"}
+  %h4 {{selectedStocklist.symbol}}
+
+  - if admin?
+    %i{:class=>"icon-edit"}     
+  %div{"contentEditable"=>"#{editable}", 
+       "ng-model"=>"selectedStocklist.name"}
+    {{selectedStocklist.name}}
+  %br
+  
+  %div.inline Exchange:
+  - if admin?
+    %i{:class=>"icon-edit"}  
+  %div.inline{"contentEditable"=>"#{editable}", 
+       "ng-model"=>"selectedStocklist.stockexchange"}
+    {{selectedStocklist.stockexchange}}
+  %br
+  
+  %div.inline Industry: 
+  - if admin?
+    %i{:class=>"icon-edit"}
+  %div.inline{"contentEditable"=>"#{editable}", 
+              "ng-model"=>"selectedStocklist.industry"}
+    {{selectedStocklist.industry}}
+  %br  
+  
+  %div.inline Sector: 
+  - if admin?
+    %i{:class=>"icon-edit"} 
+  %div.inline{"contentEditable"=>"#{editable}", 
+              "ng-model"=>"selectedStocklist.sector"}
+    {{selectedStocklist.sector}}
+  %br
+  
+  %div.inline IPO Year: 
+  - if admin?
+    %i{:class=>"icon-edit"} 
+  %div.inline{"contentEditable"=>"#{editable}", "ng-model"=>"selectedStocklist.ipoyear"}
+    {{selectedStocklist.ipoyear||'NONE'}}
+  %br
+  
+  %br
+    - if admin?
+      %button.button-mini{"ng-click" => "updateStocklist(selectedStocklist)", :class => 'btn'}
+        Update
+      %button.button-mini{"confirmed-click" => "deleteStocklist(selectedStocklist)", 
+                "ng-confirm-click" => "Do you want to delete?",
+                :class => 'btn btn-danger btn-primary'}
+        Delete

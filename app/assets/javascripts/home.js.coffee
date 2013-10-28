@@ -34,6 +34,16 @@ window.load_yahoo_info = (url) ->
     failure: (data) ->
       failure "Yahoo data fetch failed"
       
+window.load_yahoo_short_info = (url) ->
+  $.ajax
+    url: url
+    success: (data) ->  
+      #$("div#stock_short_info").html(data)
+      $("td#name").html(data['AAPL']['name'])
+
+    failure: (data) ->
+      $("div#stock_short_info").html("<b>Yahoo data fetch failed<b>")  
+      
 #Update google graph based on the period selection 
 $().ready ->
   $('#period_selection td').on 'click', (evt) ->

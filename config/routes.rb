@@ -10,7 +10,7 @@ Stockslist2::Application.routes.draw do
   end  
 
   get "stock_fetch/yahoo_data"
-  get "stock_fetch/yahoo_limited_data"
+  get "stock_fetch/yahoo_short_info"
   get "stock_fetch/yahoo_info"
   
   get "home/index"

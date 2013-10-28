@@ -60,7 +60,7 @@
   right: 0;
   bottom: 0;
   background-color: #fff;
-  min-height: 700px;
+  min-height: 380px;
   padding: 0px 25px;
   z-index: -2;
   div {
@@ -80,4 +80,15 @@
   margin-top: 11px;
   vertical-align: middle;
   visibility:hidden; 
+}
+
+#stock_short_info {
+  width: 460px;
+  margin:0px;
+  position:absolute;
+  padding-left:10px;
+  padding-right:10px;
+  border:0px solid gray;
+  top: 320px;
+  left: 425px;
 }
