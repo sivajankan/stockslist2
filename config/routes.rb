@@ -11,6 +11,7 @@ Stockslist2::Application.routes.draw do
 
   get "stock_fetch/yahoo_data"
   get "stock_fetch/yahoo_short_info"
+  get "stock_fetch/stock_image", defaults: {format: :json}
   get "stock_fetch/yahoo_info"
   
   get "home/index"

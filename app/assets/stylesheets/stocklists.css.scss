@@ -91,4 +91,16 @@
   border:0px solid gray;
   top: 320px;
   left: 425px;
+  display: none;
+}
+
+#stock_image_short {
+  border:1px solid gray;
+  width:25px;
+  height:20px;
+  float: right;
+}
+
+#fancy_image {
+  z-index: 20;
 }

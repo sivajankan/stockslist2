@@ -1,4 +1,21 @@
 %div#stock_short_info
+  %div
+    %img#stock_image_short{src: "", data: {fancydiv: "#fancydiv"}}
+    %div#fancydiv
+      %img#fancy_image{src: ""}
+      %table.table.table-bordered.table-condensed#period_selection
+        %tr
+          %td 1d
+          %td 3d
+          %td 5d
+          %td 1M
+          %td 3M
+          %td 6M
+          %td 1Y
+          %td 2Y
+          %td 5Y
+          %td max
+            
   %table.table-bordered.table-striped
     %tbody
       %tr
@@ -56,4 +73,8 @@
         %td#exDividendDate{'width'=>'160px'}
         %td{'width'=>'160px', 'align'=>'right'}=t("stockcodes.dividendPayDate", :default => 'dividendPayDate')
         %td#dividendPayDate{'width'=>'160px'}
+
+:coffee
+  $().ready ->
+    $('#stock_image_short').fancyZoom({scaleImg: true, closeOnClick: false, width: 220, height: 120})
 

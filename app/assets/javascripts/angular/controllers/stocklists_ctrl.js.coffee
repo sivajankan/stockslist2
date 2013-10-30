@@ -6,9 +6,13 @@ StocklistsApp.controller 'StocklistsCtrl', ['$scope', 'Stocklist', ($scope, Stoc
   $scope.showStocklist = (stocklist) ->
     $('#stocklist-new-container').hide()
     $scope.selectedStocklist = stocklist
+    window.load_yahoo_short_info(stocklist.symbol)
+    window.load_stock_image_url(stocklist.symbol)
+    $('#stock_short_info').show()
     
   $scope.showNewStocklist = () ->
     $scope.selectedStocklist = undefined
+    $('#stock_short_info').hide()
     $('#stocklist-new-container').show()
     
   $scope.addNewStocklist = (newStocklist) ->

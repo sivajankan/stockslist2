@@ -28,4 +28,10 @@ class StockFetchController < ApplicationController
   def yahoo_info
     render :layout => "home"
   end
+  
+  def stock_image
+    require 'stock_data_fetch'
+    @url = "#{StockGoogleGraph.get_google_graph_url(params[:symbol])}&#{StockGoogleGraph.fancy_img_params}"
+    render json: {url: @url}
+  end  
 end

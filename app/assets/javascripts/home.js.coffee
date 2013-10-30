@@ -34,15 +34,33 @@ window.load_yahoo_info = (url) ->
     failure: (data) ->
       failure "Yahoo data fetch failed"
       
-window.load_yahoo_short_info = (url) ->
+window.load_yahoo_short_info = (symbol) ->
+  url = "stock_fetch/yahoo_short_info.json?yahoo_symbol="+symbol
   $.ajax
     url: url
     success: (data) ->  
-      #$("div#stock_short_info").html(data)
-      $("td#name").html(data['AAPL']['name'])
+      stockdata = data[symbol]
+      $.each(stockdata, (key, value) ->
+         $("td#"+key).html(value)
+      )
 
     failure: (data) ->
-      $("div#stock_short_info").html("<b>Yahoo data fetch failed<b>")  
+      $("td#name").html("<b>Yahoo data fetch failed<b>")
+
+window.load_stock_image_url = (symbol) ->
+  url = "stock_fetch/stock_image.json?symbol="+symbol
+  console.log("url", url)
+  $.ajax
+    url: url
+    success: (data) -> 
+      console.log("data", data)
+      $('img#stock_image_short').attr('src', data['url'])
+      $('img#stock_image').attr('src', data['url'])
+      $('img#fancy_image').attr('src', data['url'])
+      
+    failure: (data) ->
+      $('img#stock_image_short').attr('src', "ERROR")
+  
       
 #Update google graph based on the period selection 
 $().ready ->
