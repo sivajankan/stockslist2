@@ -5,7 +5,7 @@
       %img#fancy_image{src: ""}
       %table.table.table-bordered.table-condensed#period_selection
         %tr
-          %td 1d
+          %td{style: "color:blue; text-decoration:underline;"} 1d
           %td 3d
           %td 5d
           %td 1M
@@ -15,7 +15,8 @@
           %td 2Y
           %td 5Y
           %td max
-            
+      %script{:"data-turbolinks-track"=>"true", :src=>"/assets/home.js?body=1"}
+
   %table.table-bordered.table-striped
     %tbody
       %tr
@@ -76,5 +77,5 @@
 
 :coffee
   $().ready ->
-    $('#stock_image_short').fancyZoom({scaleImg: true, closeOnClick: false, width: 220, height: 120})
+    $('#stock_image_short').fancyZoom({scaleImg: true, closeOnClick: false, width: 380, height: 200})
 

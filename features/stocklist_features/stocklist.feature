@@ -23,16 +23,15 @@ Scenario: I can create new stock entry and see it in index page
 	And I should see "Technology" inside view stocklist container
 	And I should see "Keyboard" inside view stocklist container
 
-@wip
 Scenario: I can create new stock entry and see it in index page 
   Given I am on the home page
   And I follow the "Stocklists" link
   Then I click the "Add" button
   Then I have entered "A" into the "Symbol" field inside new stocklist container  
   When I click the "Save" button inside new stocklist container
-  Then I should see "A"
+  Then I click on "A" stocklist entry inside list stocklist container
   And I should see "Last Trade"
-  And I should see "200D Mov Avg Chg"
+  And I should see "200D Mov Avg"
 
 #capybara is not ready to test content editable
 @wip

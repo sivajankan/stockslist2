@@ -19,7 +19,8 @@ class StockGoogleGraph
     rescue Exception => exp
       Rails.logger.info("SYMBOL: #{symbol}. ERROR: #{exp.to_s}")
     end
-    return "/images/no_chart_available.gif?"
+    #return "/images/no_chart_available.gif?"
+    return "http://www.google.com/finance/chart?q=#{symbol.upcase}"
   end
   
   def self.small_img_params
